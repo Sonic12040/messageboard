@@ -1,0 +1,26 @@
+{
+  "name": "messageboard",
+  "version": "1.0.0",
+  "description": "A Message Board in JS and MySQL",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sonic12040/messageboard.git"
+  },
+  "author": "Bridgette Smith, Daniel Richmond, Melissa Prax, Ryan Cybul",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sonic12040/messageboard/issues"
+  },
+  "homepage": "https://github.com/Sonic12040/messageboard#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mysql2": "^1.5.3",
+    "sequelize": "^4.37.8"
+  }
+}

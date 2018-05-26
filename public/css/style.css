@@ -190,6 +190,93 @@ button:focus {
     margin-left: 75%; 
 }
 
+/* N */
+
+.neontxt {
+	font-family: 'Courgette', cursive; 
+	font-size: 3.5em; 
+    margin: 10px auto;
+    transform: rotate(-20deg);
+    -webkit-animation: flickerAnimation 4s    infinite;
+    animation: flickerAnimation 4s    infinite;
+}
+
+.neoncircle {
+  margin: auto;
+  padding: 0.5em;
+  color: #1549ED;
+  border-radius: 100%;
+  border: 2px solid rgba(255,255,255,1);
+  width: 13em;
+  height: 13em;
+}
+
+.neonflare {
+	box-shadow:
+		0 0 5px #1549ED ,
+		inset 0 0 5px #1549ED,
+		0 0 20px #1549EDde,
+		inset 0 0 20px #1549EDde,
+		0 0 20px 2px #1549EDde,
+		inset 0 0 20px 2px #1549EDde;
+}
+
+@-webkit-keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  31.8% {
+    opacity: 0.9;
+  }
+  32% {
+    opacity: 0;
+  }
+  32.2% {
+    opacity: 0.9;
+  }
+  94.6% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0;
+  }
+  95.4% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  31.8% {
+    opacity: 0.9;
+  }
+  32% {
+    opacity: 0;
+  }
+  32.2% {
+    opacity: 0.9;
+  }
+  94.6% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0;
+  }
+  95.4% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+
 /* P */
 
 /* padding */

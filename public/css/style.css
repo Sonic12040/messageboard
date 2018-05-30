@@ -147,6 +147,20 @@ button:focus {
     height: auto;
 }
 
+/* for new post */
+input[type=text] {
+    width: 100%;
+    height: 2em;
+    border-radius: 1em;
+    font-family: 'Nixie One', cursive;
+  }
+
+/* J */
+
+.jc-center {
+    justify-content: center;
+}
+
 /* M */
 
 /* margin */
@@ -189,6 +203,20 @@ button:focus {
 .ml-75 {
     margin-left: 75%; 
 }
+
+.ml-3em {
+    margin-left: 3em;
+  }
+  .mr-3em {
+    margin-right: 3em;
+  }
+
+  .mt-3em {
+    margin-top: 3em;
+  }
+  .mb-3em {
+    margin-bottom: 3em;
+  }
 
 /* N */
 
@@ -314,6 +342,16 @@ button:focus {
 .s-i {
     justify-content: space-between;
 }
+.speechform {
+    width: 90%;
+    height: auto;
+    padding: 1.5em;
+    background: rgba(233,233,233, 0.7);
+    position: relative;
+    -moz-border-radius:    10px;
+    -webkit-border-radius: 10px;
+    border-radius:         10px;
+ }
 
 
 /* T */
@@ -395,16 +433,15 @@ and (min-width: 980px)
 
     .neontxt_lg {
         font-family: 'Courgette', cursive; 
+        padding: 0.5em;
         font-size: 3.5em; 
-        margin: 10px auto;
         transform: rotate(-20deg);
         -webkit-animation: flickerAnimation 4s    infinite;
         animation: flickerAnimation 4s    infinite;
     }
     
     .neoncircle_lg {
-      margin: auto;
-      padding: 0.5em;
+      /* padding: 0.5em; */
       color: #1549ED;
       border-radius: 100%;
       border: 2px solid rgba(255,255,255,1);
@@ -422,16 +459,15 @@ and (max-width: 979px) {
 
     .neontxt_md {
         font-family: 'Courgette', cursive; 
+        padding: 0.5em;
         font-size: 2.5em; 
-        margin: 10px auto;
         transform: rotate(-20deg);
         -webkit-animation: flickerAnimation 4s    infinite;
         animation: flickerAnimation 4s    infinite;
     }
     
     .neoncircle_md {
-      margin: auto;
-      padding: 0.5em;
+      /* padding: 0.5em; */
       color: #1549ED;
       border-radius: 100%;
       border: 2px solid rgba(255,255,255,1);

@@ -211,6 +211,8 @@ input[type=text] {
     margin-right: 3em;
   }
 
+
+
   .mt-3em {
     margin-top: 3em;
   }
@@ -291,6 +293,10 @@ input[type=text] {
 
 /* padding */
 
+.pad-03em {
+    padding: 0.3em;
+}
+
 .pad-15px {
     padding: 0px 15px 0 0;
 }
@@ -347,7 +353,6 @@ input[type=text] {
     height: auto;
     padding: 1.5em;
     background: rgba(233,233,233, 0.7);
-    position: relative;
     -moz-border-radius:    10px;
     -webkit-border-radius: 10px;
     border-radius:         10px;

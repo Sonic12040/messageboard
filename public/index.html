@@ -8,11 +8,10 @@
     <!-- CSS Reset stylesheet link -->
     <link rel="stylesheet" type="text/css" media="screen" href="./css/reset.css" />
     <!-- Google Font links (must be after reset and before CSS) -->
-    <link href="https://fonts.googleapis.com/css?family=Nixie+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <!-- For Neon Sign -->
     <link href="https://fonts.googleapis.com/css?family=Courgette&effect=neon" rel="stylesheet">
     <!-- for text -->
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <!-- CSS style sheet link -->
     <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
     <!--    adding VueJS ref -->
@@ -22,7 +21,7 @@
     <!-- link to javascript link -->
  
 </head>
-<body class="bg-brick"> 
+<body class="bg-brick font-Poppins"> 
     <div> 
         <!-- header -->
         <!-- Neon Sign -->
@@ -42,7 +41,7 @@
         <!-- end of header -->
 
         <!-- New post section -->
-        <div class="ml-3em mr-3em mt-3em d-f jc-center">
+        <div class="ml-3em mr-3em mt-3em d-f jc-center mb-1em">
             <div class="speechform">
                 <form>
                     <div class="js-usernamepost pad-1em">username (will populate)
@@ -55,6 +54,23 @@
         <!-- end of new posts -->
 
         <!-- posts -->
+        <div class="d-f jc-center">
+            <div class="speechbox ml-3em mr-3em mb-1em">
+                <div>This is where the username will go
+                </div>
+                <div>This is a post
+                </div>
+            </div>
+        </div>
+        <div class="d-f jc-center">
+            <div class="speechbox2 ml-5em mr-1em mb-1em">
+                <div>This is where the username will go
+                </div>
+                <div>This is a post
+                </div>
+            </div>
+        </div>    
+        
         <!-- End of posts -->
 
         <!-- footer -->
@@ -63,6 +79,6 @@
     <!-- end of wrapping div -->
     </div>
 
-    <script src="./js/main.js"></script>  
+    <script src="../models/index.js"></script>  
 </body>
 </html>

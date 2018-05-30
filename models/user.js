@@ -19,7 +19,8 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             validate: {
                 //validation
-            }
+            },
+            defaultValue: 0
         },
         userLevel: {
             type: DataTypes.INTEGER,

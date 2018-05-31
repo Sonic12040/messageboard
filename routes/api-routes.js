@@ -16,10 +16,13 @@ module.exports = function(app) {
                 localStorage.clear();
                 localStorage.setItem("username", username);
                 localStorage.setItem('password', hash);
+                localStorage.setItem('loggedin', true);
                 location.reload();
             });
         });
     })
+
+
 
     app.get("/api/getusers", function(req, res){
         let username = localStorage.getItem(username);

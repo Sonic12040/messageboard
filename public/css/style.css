@@ -20,6 +20,20 @@
     border-width: thin;
 }
 
+/* Login Buttons */
+.btn {
+    background-color: #FA6E90;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
 
 button:focus {
     background-color: #B9F6CA;

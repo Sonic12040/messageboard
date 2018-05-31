@@ -10,6 +10,13 @@
 .bg-brick {
     background-image: url("../images/black-bricks-background.jpg")
 }
+.bg-login {
+    height: 100%;
+    width: 100%; 
+    background-size: cover;
+    background: rgb(1,0,17);
+    background: linear-gradient(145deg, rgba(1,0,17,0.95) 0%, rgba(6,19,33,0.95) 46%, rgba(145, 173, 219) 100%);
+}
 .box-shadow {
     box-shadow: 10px 10px 5px black;
 }
@@ -34,10 +41,19 @@
     cursor: pointer;
 } */
 
-
-button:focus {
-    background-color: #B9F6CA;
+.button {
+    background-color: rgb(233,233,233);
+    border: none;
+    color: rgb(1,0,17);
+    padding: 15px 20px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    font-size: 10px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
+
 
 /* C */
 
@@ -48,16 +64,6 @@ button:focus {
 .content {
     min-height: calc(100vh - 70px);
 }
-
-/* COLORS */
-.color-FA6E90 {
-    color: #FA6E90;
-}
-.cursor-custom {
-    cursor: url(../images/noface.png), move;	
-}
-
-
 
 /* D */
 
@@ -75,8 +81,15 @@ button:focus {
     display: none; 
 }
 
-/* F */
+/* F */ 
 
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.7s;
+}
 
 /* fonts */
 .font-Courgette {
@@ -85,17 +98,17 @@ button:focus {
 .font-Poppins {
     font-family: 'Poppins', sans-serif;
 }
+.font-233 {
+   color: rgba(233,233,233);
+}
 
-.fs-100px {
+.fs-6rem {
     font-size: 6.25rem; 
 }
-.fs-20px {
+.fs-1rem {
     font-size: 1.25rem;
 }
-.fs-25px {
-    font-size: 25px;
-}
-.fs-45px {
+.fs-2rem {
     font-size: 2.5rem;
 }
 .f-bold {
@@ -106,8 +119,8 @@ button:focus {
 .f-e {
     justify-content: flex-end;
 }
-.flex-end {
-    justify-content: flex-end;
+.f-s {
+    justify-content: flex-start;
 }
 .flex-nowrap {
     flex-wrap: nowrap;
@@ -162,12 +175,24 @@ button:focus {
 }
 
 /* for new post */
-input[type=text] {
-    width: 100%;
+input[type=text-newpost] {
+    width: 80%;
     height: 2em;
-    border-radius: 1em;
     font-family: 'Poppins', sans-serif;
   }
+
+/* for login and signup */
+
+input[type=text-modal] {
+    width: 50%;
+    height: 3em;
+    font-family: 'Poppins', sans-serif;
+  }
+
+input[type=password] {
+    width: 50%;
+    height: 3em;
+}
 
 /* J */
 
@@ -181,35 +206,11 @@ input[type=text] {
 .ma {
     margin: auto;
 }
-.mt-20px {
-    margin-top: 20px;
-}
-.mb-20px{
-    margin-bottom: 20px;
-}
-.mb-40px {
-    margin-bottom: 40px; 
-}
-.mb-500px{
-    margin-bottom: 500px
-}
-.ml-20px {
-    margin-left: 20px;
-}
-.ml-100px {
-    margin-left: 100px;
-}
 .ml-a {
     margin-left: auto;
 }
-.mr-20px {
-    margin-right: 20px;
-}
 .mr-a {
     margin-right: auto;
-}
-.mt-100px {
-    margin-top: 100px;
 }
 .mt-30vh {
     margin-top: 30vh;
@@ -308,6 +309,15 @@ input[type=text] {
   }
 }
 
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+    }
+	100% {
+		opacity: 1;
+	}
+}
+
 
 
 
@@ -357,19 +367,17 @@ input[type=text] {
 .o-scroll {
     overflow: scroll;
 }
-.overflow-n {
+.overflow-h {
     overflow-x: hidden;
 }
 
 /* S */
 
 /* flexbox */
-.s-i {
+.s-b {
     justify-content: space-between;
 }
-.s-i {
-    justify-content: space-between;
-}
+
 .speechform {
     width: 90%;
     height: auto;
@@ -522,6 +530,10 @@ and (min-width: 980px)
       height: 13em;
     }
 
+    .mt-30vh_lg {
+        margin-top: 30vh;
+    }
+
 
   }
 
@@ -546,6 +558,10 @@ and (max-width: 979px) {
       border: 2px solid rgba(255,255,255,1);
       width: 10em;
       height: 10em;
+    }
+
+    .mt-30vh_md {
+        margin-top: 30vh;
     }
 
 

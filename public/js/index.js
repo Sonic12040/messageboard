@@ -7,6 +7,11 @@ $( document ).ready(function() {
         console.log("this worked");   
     });
 
+    // For X button on login modal
+    $(".js-login-off").on('click', function(event) {
+        $(".js-login-modal").toggleClass("d-n"); 
+    })
+
 
     $(".js-signup-button").on('click', function(event) {
         // event.preventDefault();

@@ -21,7 +21,7 @@
 }
 
 /* Login Buttons */
-.btn {
+/* .btn {
     background-color: #FA6E90;
     border: none;
     color: white;
@@ -32,7 +32,7 @@
     font-size: 10px;
     margin: 4px 2px;
     cursor: pointer;
-}
+} */
 
 
 button:focus {

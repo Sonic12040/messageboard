@@ -1,16 +1,15 @@
-const bcrypt = require("bcrypt");
-
 $( document ).ready(function() {
+
     
     $(".js-login-button").on('click', function(event) {
-        event.preventDefault();
+        // event.preventDefault();
         $(".js-login-modal").toggleClass("d-n");
         console.log("this worked");   
     });
 
 
     $(".js-signup-button").on('click', function(event) {
-        event.preventDefault();
+        // event.preventDefault();
         $(".js-signup-modal").toggleClass("d-n");
         console.log("this worked, too!!");
     });

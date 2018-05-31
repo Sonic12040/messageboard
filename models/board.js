@@ -21,5 +21,12 @@ module.exports = function(sequelize, DataTypes) {
             }
         }
     });
+
+    Board.associate = function(models) {
+        Board.hasMany(models.Topic, {
+            onDelete: "cascade"
+        });
+    }
+    
     return Board;
 };

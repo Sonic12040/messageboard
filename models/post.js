@@ -6,10 +6,16 @@ module.exports = function(sequelize, DataTypes) {
                 //validation here
             }
         },
-        user: {
-            //associate with user who created it
-            //includes and associations?
-        }
     });
+
+    Post.associate = function(models) {
+        Post.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        })
+    }
+
+    //Post Belongs to Topic
     return Post;
 };

@@ -8,41 +8,99 @@
     <!-- CSS Reset stylesheet link -->
     <link rel="stylesheet" type="text/css" media="screen" href="./css/reset.css" />
     <!-- Google Font links (must be after reset and before CSS) -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <!-- For Neon Sign -->
     <link href="https://fonts.googleapis.com/css?family=Courgette&effect=neon" rel="stylesheet">
     <!-- for text -->
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <!-- CSS style sheet link -->
     <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
-    <!--    adding VueJS ref -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <!-- Jquery stylesheet hyper link + AJAX -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- link to javascript link -->
  
 </head>
-<body class="bg-brick"> 
-    <div> 
+<body class="bg-brick font-Poppins"> 
+
+    <!-- Put Hamburger Menu Here -->
+
+    <!-- Login Options -->
+    <div class="d-f">
+       
+        <div class="f-e ml-a ml-100px">
+            <input type="button" class="js-login-button btn" value="Login">
+        <!-- <input type="button" class="button" value="Logout">  -->
+            <input type="button" class="js-signup-button btn" value="Sign Up">
+        </div>
+    </div>
+
+
+    <div class="js-login-modal d-n pos-r z-index-2">
+        <h1>Login</h1>
+            <form method="get">
+                <input type="text" name="namelogin" placeholder="username" required="required" />
+                <input type="password" name="passwordlogin" placeholder="password" required="required" />
+                <button type="submit">Login</button>
+            </form>
+    </div>
+    
+    <div class="js-signup-modal d-n pos-r z-index-2">
+        <h1>Sign Up</h1>
+            <form action="/api/createuser" method="post">
+                <input type="text" name="name" placeholder="Username" required="required" />
+                <input type="password" name="password" placeholder="Password" required="required" />
+                <button class="js-newuser" type="submit">Sign Up!</button>
+            </form>
+    </div>
+         
+        
+
         <!-- header -->
         <!-- Neon Sign -->
-        <div class="neoncircle_lg neoncircle_md neoncircle_sm neonflare">
-            <h1 class="font-effect-neon neontxt_lg neontxt_md neontxt_sm t-a-c">
-                <p>Talk</p>
-                <p>is</p>
-                <p>Cheap</p>
-            </h1>
-        <!-- End of Sign -->
+        <div class="d-f jc-center mt-3em">
+            <div class="neoncircle_lg neoncircle_md neoncircle_sm neonflare">
+                <h1 class="font-effect-neon neontxt_lg neontxt_md neontxt_sm t-a-c">
+                    <p>Talk</p>
+                    <p>is</p>
+                    <p>Cheap</p>
+                </h1>
+            </div>
+        <!-- closing div for End of Sign -->
         </div>
-
-        <!-- Put Hamburger Menu Here -->
 
         <!-- end of header -->
 
         <!-- New post section -->
-
+        <div class="ml-3em mr-3em mt-3em d-f jc-center mb-1em">
+            <div class="speechform">
+                <form>
+                    <div class="js-usernamepost pad-1em">username (will populate)
+                    </div>
+                        <input type="text">
+                        <input type="submit" value="Post Your Thought">
+                </form>
+            </div>
+        </div>
         <!-- end of new posts -->
+        
 
         <!-- posts -->
+        <div class="d-f jc-center">
+            <div class="speechbox ml-3em mr-3em mb-1em">
+                <div>This is where the username will go
+                </div>
+                <div>This is a post
+                </div>
+            </div>
+        </div>
+        <div class="d-f jc-center">
+            <div class="speechbox2 ml-5em mr-1em mb-1em">
+                <div>This is where the username will go
+                </div>
+                <div>This is a post
+                </div>
+            </div>
+        </div>    
+        
         <!-- End of posts -->
 
         <!-- footer -->
@@ -51,6 +109,6 @@
     <!-- end of wrapping div -->
     </div>
 
-    <script src="./js/main.js"></script>  
+    <script src="./js/index.js"></script>  
 </body>
 </html>

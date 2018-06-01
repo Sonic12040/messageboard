@@ -90,6 +90,26 @@
     display: none; 
 }
 
+/* Drop Down */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(233,233,233);
+    min-width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 /* F */ 
 
 .fade-in {
@@ -392,9 +412,9 @@ input[type=password] {
     height: auto;
     padding: 1.5em;
     background: rgba(233,233,233, 0.8);
-    -moz-border-radius:    10px;
-    -webkit-border-radius: 10px;
-    border-radius:         10px;
+    /* -moz-border-radius:    10px;
+    -webkit-border-radius: 10px; */
+    /* border-radius:         10px; */
  }
 
  .speechbox {
@@ -403,9 +423,9 @@ input[type=password] {
     padding: 1.5em;
     background: rgba(233,233,233, 0.8);
     position: relative;
-    -moz-border-radius:    10px;
-    -webkit-border-radius: 10px;
-    border-radius:         10px;
+    /* -moz-border-radius:    10px;
+    -webkit-border-radius: 10px; */
+    /* border-radius:         10px; */
  }
  .speechbox:before {
     content:"";
@@ -426,9 +446,9 @@ input[type=password] {
     padding: 1.5em;
     background: rgba(145, 173, 219, 0.8); 
     position: relative;
-    -moz-border-radius:    10px;
-    -webkit-border-radius: 10px;
-    border-radius:         10px;
+    /* -moz-border-radius:    10px;
+    -webkit-border-radius: 10px; */
+    /* border-radius:         10px; */
  }
  .speechbox2:before {
     content:"";

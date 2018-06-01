@@ -19,6 +19,12 @@ $( document ).ready(function() {
         console.log("this worked, too!!");
     });
 
+    // For X button on signup modal
+    $(".js-signup-off").on('click', function(event) {
+        // event.preventDefault();
+        $(".js-signup-modal").toggleClass("d-n");
+    });
+
     $(".js-newuser").on('click', function(event){
         let username = req.name;
         let tempPass = req.password;

@@ -17,6 +17,15 @@
     background: rgb(1,0,17);
     background: linear-gradient(145deg, rgba(1,0,17,0.95) 0%, rgba(6,19,33,0.95) 46%, rgba(145, 173, 219) 100%);
 }
+
+.bg-signup {
+    height: 100%;
+    width: 100%; 
+    background-size: cover;
+    background: rgb(1,0,17);
+    background: linear-gradient(145deg, rgba(233,233,233) 0%, rgba(6,19,33,0.95) 46%,rgba(1,0,17,0.95) 100%);
+}
+
 .box-shadow {
     box-shadow: 10px 10px 5px black;
 }

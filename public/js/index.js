@@ -40,6 +40,10 @@ $( document ).ready(function() {
         });
     });
 
+    //for topics to expand
+    $(".js-topic").on('click', function(event){
+        $(".js-posts-expand").toggleClass("expand");
+    })
 
 
 

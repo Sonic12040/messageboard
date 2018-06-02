@@ -270,14 +270,51 @@ input[type=password] {
     margin-right: 3em;
   }
 
-
-
   .mt-3em {
     margin-top: 3em;
   }
   .mb-3em {
     margin-bottom: 3em;
   }
+
+ /* menu  */
+
+    .mb-menu {
+
+        position: fixed; 
+        background: white;
+       
+        }
+        
+    .mb-menu-vertical {
+        
+        width: 300px; 
+        height: 100%; 
+        top: 0; 
+        left: 0;
+        z-index: 1;
+        
+        }
+        
+    .mb-menu-push {
+        overflow-x: hidden;
+        position: relative;
+        left: 0;
+        }
+
+    .mb-menu-push-toright {
+            margin-left: 300px;
+        }
+
+     .mb-menu-push-toleft {
+            left: -300px;
+        }
+
+    .mb-menu, .mb-menu-push {
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
 
 /* N */
 

@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSS Reset stylesheet link -->
     <link rel="stylesheet" type="text/css" media="screen" href="./css/reset.css" />
+      <!-- Font Awesome Links -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <!-- Google Font links (must be after reset and before CSS) -->
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <!-- For Neon Sign -->
@@ -16,10 +18,10 @@
     <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
     <!-- Jquery stylesheet hyper link + AJAX -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- link to javascript link -->
+  
  
 </head>
-<body class="bg-brick font-Poppins"> 
+<body class="bg-brick font-Poppins mb-menu-push"> 
 
     <!-- Modals NEED TO BE HERE so they fully cover background -->
     <div class="js-login-modal bg-login d-n pos-f z-index-1 fade-in">
@@ -55,21 +57,35 @@
     </div>
 
     <!-- header -->
-
-    <!-- Put Hamburger Menu Here -->
-    <div class="d-f f-s">
-            hamburger menu placeholder
-        </div>
-
-    <!-- Login Options -->
-    <div class="d-f f-e">
-
-        <input type="button" class="js-login-button button" value="Login">
-        <!-- <input type="button" class="button" value="Logout">  -->
-        <input type="button" class="js-signup-button button" value="Sign Up">
+    <div style="display: flex; justify-content: space-between;">
+        <!-- Put Hamburger Menu Here -->
+        <div class="f-s">
+                <i id="js-mb-toggle" class="fas fa-bars" style="color: white; font-size: 45px; margin: 4px 2px;"></i>
+                
+                <nav id="js-mb-menu" class="mb-menu mb-menu-vertical">
+                        <i id="js-mb-toggle-off" class="fas fa-times" style="color: black; font-size: 45px; margin: 4px 2px;"></i>
+                        <h3>Menu</h3>
+                            <a href="#">Login</a>
+                            <a href="#">Signup</a>
+                            <a href="#">Preferences</a>
+                            <a href="#">Topics</a>
+                            <a href="#">Logout</a>
+                    </nav>
         
+            </div>
+
+        <!-- Login Options -->
+        <div class="f-e">
+
+            <input type="button" class="js-login-button button" value="Login">
+            <!-- <input type="button" class="button" value="Logout">  -->
+            <input type="button" class="js-signup-button button" value="Sign Up">
+            
+        </div>
     </div>
          
+     <!-- end of header -->
+     <div class="wrapper">
         <!-- Neon Sign -->
         <div class="d-f jc-center mb-1em">
             <div class="neoncircle_lg neoncircle_md neoncircle_sm neonflare">
@@ -82,7 +98,7 @@
         <!-- closing div for End of Sign -->
         </div>
 
-    <!-- end of header -->
+   
 
         <!-- New post section -->
         <div class="ml-3em mr-3em d-f jc-center mb-1em">
@@ -148,7 +164,7 @@
 
     <!-- end of wrapping div -->
     </div>
-
+</div>
 
     <script src="./js/index.js"></script>  
 </body>

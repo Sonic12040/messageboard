@@ -13,17 +13,15 @@ module.exports = function(app) {
         });
     })
 
-    app.get("/api/getusers", function(req, res){
-        let username = localStorage.getItem(username);
-        let pass = localStorage.getItem(password);
+    app.post("/api/getusers", function(req, res){
         db.User.findOne({
             where: {
-                username: username,
-                password: pass
+                username: req.body.username,
+                password: req.body.password
             }
         }).then(function(result) {
             console.log(result);
-            localstorage.setItem("loggedin", true);
+            res.json(result);
         });
     });
 

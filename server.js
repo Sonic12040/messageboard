@@ -9,9 +9,8 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 
 //Route Imports
-require("./routes/api-routes")(app);
-require("./routes/html-routes")(app);
-
+require("./routes/api-routes") (app);
+require("./routes/html-routes") (app);
 
 db.sequelize.sync({}).then(function() {
     app.listen(PORT, function() {

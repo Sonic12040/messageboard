@@ -26,4 +26,37 @@ module.exports = function(app) {
             localstorage.setItem("loggedin", true);
         });
     });
+
+    //Create board
+    app.post("/api/createboard", function(req, res){
+        //Create an if statement to see if the user is an admin
+        db.Board.create({
+            title: req.body.title,
+            description: req.body.description
+        }).then((dbBoard) => {
+            res.json(dbBoard);
+        });
+    });
+
+    //Create topic
+    app.post("/api/createtopic", function(req, res){
+        console.log(req.body);
+        //We need to pass through the object containing the below case sensitive fields in JSON format.
+        db.Topic.create({
+            topicName: req.body.topicName,
+            UserId: req.body.UserId,
+            BoardId: req.body.BoardId
+        }).then((dbTopic) => {
+            res.json(dbTopic);
+        });
+    });
+
+    //Create post
+    app.post("/api/createpost", function(req, res){
+        db.Post.create({
+            content: req.body.content
+        }).then((dbPost) => {
+            res.json(dbPost);
+        });
+    });
 }

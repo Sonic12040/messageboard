@@ -53,8 +53,11 @@ module.exports = function(app) {
 
     //Create post
     app.post("/api/createpost", function(req, res){
+    //We need to pass through the object containing the below case sensitive fields in JSON format.
         db.Post.create({
-            content: req.body.content
+            content: req.body.content,
+            UserId: req.body.UserId,
+            TopicId: req.body.TopicId
         }).then((dbPost) => {
             res.json(dbPost);
         });

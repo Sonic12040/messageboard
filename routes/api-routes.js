@@ -4,21 +4,12 @@ const bcrypt = require("bcrypt");
 module.exports = function(app) {
     //creating the user! TRON
     app.post("/api/createuser", function(req, res) {
-        let username = req.name;
-        let tempPass = req.password;
-        const saltRounds = 10;
-
-        bcrypt.hash(tempPass, saltRounds, function(err, hash) {
-            // Store hash in your password DB.
-            if (err) throw err;
-            //Code to store hash and username in users database
-            db.User.create(username, hash).then(function(result) {
-                localStorage.clear();
-                localStorage.setItem("username", username);
-                localStorage.setItem('password', hash);
-                localStorage.setItem('loggedin', true);
-                location.reload();
-            });
+    //In jquery pass this information as an object.
+        db.User.create({
+            username: req.body.username,
+            password: req.body.password
+        }).then((dbUsers) => {
+            res.json(dbUsers);
         });
     })
 

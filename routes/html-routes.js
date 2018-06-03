@@ -28,6 +28,9 @@ app.get("/", function(req, res){
 //boards/:board/:topic/:message
 //users/:user
 //admin
+app.get("/admin", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/admin.html"));
+});
 //boards/:board/:topicquery
 
 }

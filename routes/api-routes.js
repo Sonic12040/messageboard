@@ -60,4 +60,29 @@ module.exports = function(app) {
             res.json(dbPost);
         });
     });
+
+    //The Boards Page - Featuring Zach Braff
+    app.get("/boards", function(req, res) {
+        db.Board.findAll({
+            include: [
+                {
+                    model: db.Topic,
+                    include: [
+                        {
+                            model: db.User,
+                            where: {},
+                            limit: 1
+                        }
+                    ],
+                    where: {},
+                    order: [[ 'createdAt', 'DESC' ]],
+                    limit: 1
+                }
+            ]
+        }).then(function (boardResults) {
+            let data = boardResults;
+            console.log(data[0].dataValues.Topics);
+            res.json(data);
+        });
+    })
 }

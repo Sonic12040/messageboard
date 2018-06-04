@@ -70,6 +70,7 @@ module.exports = function(app) {
                     include: [
                         {
                             model: db.User,
+                            attributes: ['username'],
                             where: {},
                             limit: 1
                         }

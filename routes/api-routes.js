@@ -93,9 +93,11 @@ module.exports = function(app) {
             where: {
                 id: req.params.board
             },
+            attributes: ['title', 'description'],
             include: [
                 {
                     model: db.Topic,
+                    attributes: ['id', 'topicName', 'updatedAt', 'BoardId'],
                     include: [
                         {
                             model: db.User,
@@ -127,7 +129,7 @@ module.exports = function(app) {
             include: [
                 {
                     model: db.Post,
-                    
+
                 }
             ]
         })

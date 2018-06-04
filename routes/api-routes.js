@@ -85,4 +85,34 @@ module.exports = function(app) {
             res.json(data);
         });
     })
+
+    //The Topics Page - Featuring Donald Faison
+    app.get("/boards/:board", function(req, res) {
+        db.Board.findOne({
+            where: {
+                id: req.params.board
+            },
+            include: [
+                {
+                    model: db.Topic,
+                    include: [
+                        {
+                            model: db.User,
+                            where: {},
+                            limit: 1
+                        }
+                    ],
+                    where: {
+                        boardId: req.params.board
+                    },
+                    order: [[ 'createdAt', 'DESC' ]],
+                    limit: 50
+                }
+            ]
+        }).then(function(topicResults) {
+            let data = topicResults;
+            conosle.log(topicResults);
+            res.json(data);
+        });
+    });
 }

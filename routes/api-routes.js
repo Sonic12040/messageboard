@@ -98,8 +98,9 @@ module.exports = function(app) {
                     include: [
                         {
                             model: db.User,
-                            where: {},
-                            limit: 1
+                            attributes: ['username']
+                            // where: {},
+                            // limit: 1
                         }
                     ],
                     where: {
@@ -111,7 +112,7 @@ module.exports = function(app) {
             ]
         }).then(function(topicResults) {
             let data = topicResults;
-            conosle.log(topicResults);
+            console.log(topicResults);
             res.json(data);
         });
     });

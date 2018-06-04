@@ -117,4 +117,19 @@ module.exports = function(app) {
             res.json(data);
         });
     });
+
+    //The Messages Page - Featuring Sarah Chalke
+    app.get("boards/:board/:topic", function(req, res) {
+        db.Topic.findOne({
+            where: {
+
+            },
+            include: [
+                {
+                    model: db.Post,
+                    
+                }
+            ]
+        })
+    })
 }

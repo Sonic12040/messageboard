@@ -64,6 +64,7 @@ module.exports = function(app) {
     //The Boards Page - Featuring Zach Braff
     app.get("/boards", function(req, res) {
         db.Board.findAll({
+            attributes: ['id', 'title', 'description'],
             include: [
                 {
                     model: db.Topic,
@@ -71,8 +72,6 @@ module.exports = function(app) {
                         {
                             model: db.User,
                             attributes: ['username'],
-                            where: {},
-                            limit: 1
                         }
                     ],
                     where: {},
@@ -102,8 +101,6 @@ module.exports = function(app) {
                         {
                             model: db.User,
                             attributes: ['username']
-                            // where: {},
-                            // limit: 1
                         }
                     ],
                     where: {

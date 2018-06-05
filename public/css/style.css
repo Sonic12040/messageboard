@@ -303,18 +303,24 @@ input[type=password] {
         }
 
     .mb-menu-push-toright {
-            margin-left: 300px;
+            /* margin-left: 300px; */
+            -ms-transform: translateX(300px);
+        transform: translateX(300px);
+        transition: transform 0.2s ease;
         }
 
      .mb-menu-push-toleft {
-            left: -300px;
+            /* margin-left: -300px; */
+            -ms-transform: translateX(-300px);
+            transform: translateX(-300px);
+            transition: transform 0.2s ease;
         }
 
-    .mb-menu, .mb-menu-push {
+    /* .mb-menu, .mb-menu-push {
         -webkit-transition: all 0.3s ease;
         -moz-transition: all 0.3s ease;
         transition: all 0.3s ease;
-    }
+    } */
 
 /* N */
 
@@ -416,6 +422,12 @@ input[type=password] {
 }
 .pad-30px {
     padding: 30 30 30 30;
+}
+.pl-3em {
+    padding-left: 3em;
+}
+.pr-3em {
+    padding-right: 3em;
 }
 
 /* position */
@@ -547,6 +559,15 @@ input[type=password] {
 }
 .width-7vw {
     width: 7vw;
+}
+
+/* wrapper */
+
+.wrapper {
+    /* height: 100vh;
+    width: 100vw;
+    position: relative; */
+	transition: transform 0.3s ease;
 }
 
 /* Z */

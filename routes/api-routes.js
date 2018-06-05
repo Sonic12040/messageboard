@@ -4,8 +4,8 @@ const bcrypt = require("bcrypt");
 
 module.exports = function(app) {
 
-
     
+
     //creating the user! TRON
     app.post("/api/createuser", function(req, res) {
     //In jquery pass this information as an object.

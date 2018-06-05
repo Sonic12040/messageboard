@@ -54,9 +54,12 @@ $( document ).ready(function() {
 
     //show menu
     $( "#js-mb-toggle" ).on('click', function() {
-        $(".wrapper").addClass("mb-menu-push-toright");
-	
-        $( "#js-mb-menu" ).animate( {width: 'toggle'}, function()
+         $(".wrapper").addClass("mb-menu-push-toright");
+        $(".wrapper").animate({
+            marginleft: '+=300px'
+        }, 500);
+        
+        $( "#js-mb-menu" ).animate( {width: 'toggle'},  function()
                 {   
                         $( "#js-mb-toggle" ).hide();
                         $( "#js-mb-toggle-off").show(); 
@@ -67,12 +70,18 @@ $( document ).ready(function() {
 
     //  //hide menu on click   
      $( "#js-mb-toggle-off" ).on('click', function() {
+
+        $(".wrapper" ).removeClass( "mb-menu-push-toright" );
+        $(".wrapper").animate({
+            marginleft: '-=300px'
+        }, 500);
+        
 	
         $( "#js-mb-menu" ).animate( {width: 'toggle'}, function()
                 {
                         $( "#js-mb-toggle-off" ).hide();
                         $( "#js-mb-toggle" ).show();
-                        $( ".wrapper" ).removeClass( "mb-menu-push-toright" )
+                       
             
                  });
         });

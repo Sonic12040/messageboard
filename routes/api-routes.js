@@ -7,19 +7,10 @@ module.exports = function(app) {
     
 
     //creating the user! TRON
-    app.post("/api/createuser", function(req, res) {
-    //In jquery pass this information as an object.
-        db.User.create({
-            username: req.body.username,
-            password: req.body.password
-        }).then((dbUsers) => {
-            res.json(dbUsers);
-        });
-    });
 
 
 
-    app.post("/api/getusers", function(req, res){
+    app.post("/api/login", function(req, res){
         db.User.findOne({
             where: {
                 username: req.body.username,

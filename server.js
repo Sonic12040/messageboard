@@ -4,26 +4,23 @@ var db = require("./models");
 var PORT = process.env.PORT || 8080;
 var app = express();
 var passport = require('passport');
-var flash = require('connect-flash');
-var morgan = require('morgan');
-var cookieParser = require('cookie-parser');
 var session = require('express-session');
+var env = require('dotenv').load();
 
 
 // app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(express.static("public"));
-app.use(morgan('dev'));
-
-app.use(session({ secret: 'message' })); // session secret
+app.use(session({ secret: 'Daniels Dirty Dogs',resave: true, saveUninitialized:true})); // session secret
 app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
-app.use(flash()); // use connect-flash for flash messages stored in session
+app.use(passport.session());
 
 //Route Imports
 require("./routes/api-routes") (app, passport);
 require("./routes/html-routes") (app, passport);
+var authRoute = require('./routes/auth-routes.js')(app,passport);
+require('./config/passport.js')(passport, db.User);
 
 db.sequelize.sync({}).then(function() {
     app.listen(PORT, function() {

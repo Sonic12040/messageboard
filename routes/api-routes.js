@@ -1,7 +1,11 @@
 var db = require("../models");
 const bcrypt = require("bcrypt");
+// let passportlocal = require("passport-local");
 
 module.exports = function(app) {
+
+
+    
     //creating the user! TRON
     app.post("/api/createuser", function(req, res) {
     //In jquery pass this information as an object.
@@ -11,7 +15,9 @@ module.exports = function(app) {
         }).then((dbUsers) => {
             res.json(dbUsers);
         });
-    })
+    });
+
+
 
     app.post("/api/getusers", function(req, res){
         db.User.findOne({
@@ -60,6 +66,7 @@ module.exports = function(app) {
             res.json(dbPost);
         });
     });
+
 
     //The Boards Page - Featuring Zach Braff
     app.get("/boards", function(req, res) {

@@ -69,7 +69,7 @@ module.exports = function(app) {
 
 
     //The Boards Page - Featuring Zach Braff
-    app.get("/boards", function(req, res) {
+    app.get("/api/boards", function(req, res) {
         db.Board.findAll({
             attributes: ['id', 'title', 'description'],
             include: [
@@ -94,7 +94,7 @@ module.exports = function(app) {
     })
 
     //The Topics Page - Featuring Donald Faison
-    app.get("/boards/:board", function(req, res) {
+    app.get("/api/boards/:board", function(req, res) {
         db.Board.findOne({
             where: {
                 id: req.params.board
@@ -125,17 +125,30 @@ module.exports = function(app) {
     });
 
     //The Messages Page - Featuring Sarah Chalke
-    app.get("boards/:board/:topic", function(req, res) {
+    app.get("/api/boards/:board/:topic", function(req, res) {
         db.Topic.findOne({
             where: {
-
+                BoardId: req.params.board,
+                id: req.params.topic,
             },
             include: [
                 {
-                    model: db.Post,
-
+                    model: db.Post, 
+                    where: {
+                        TopicId: req.params.topic,
+                    },
+                    include: [
+                        {
+                            model: db.User,
+                            attributes: ['username']
+                        }
+                    ],
                 }
             ]
-        })
-    })
+        }).then(function(messageResults) {
+            let data = messageResults;
+            console.log(data);
+            res.json(data);
+        });
+    });
 }

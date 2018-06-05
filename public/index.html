@@ -50,7 +50,7 @@
             <form action="/api/createuser" method="post">
                 <input type="text-modal" name="name" placeholder="Username" required="required" />
                 <input type="password" name="password" placeholder="Password" required="required" />
-                <p><button class="js-newuser" type="submit">Sign Up!</button>
+                <p><button class="js-newuser button" type="submit">Sign Up!</button>
                 </p>
             </form>
         </div>
@@ -87,7 +87,7 @@
      <!-- end of header -->
      <div class="wrapper">
         <!-- Neon Sign -->
-        <div class="d-f jc-center mb-1em">
+        <div class="d-f jc-center mb-2em_lg mb1em_sm">
             <div class="neoncircle_lg neoncircle_md neoncircle_sm neonflare">
                 <h1 class="font-effect-neon neontxt_lg neontxt_md neontxt_sm t-a-c">
                     <p>Talk</p>
@@ -97,49 +97,10 @@
             </div>
         <!-- closing div for End of Sign -->
         </div>
-
-   
-
-        <!-- New post section -->
-        <div class="ml-3em mr-3em d-f jc-center mb-1em">
-            <div class="speechform">
-                <form>
-                    <div class="js-usernamepost pad-1em">username (will populate)
-                    </div>
-                        <!-- form box for post -->
-                        <input type="text-newpost">
-                            <input class="button" type="submit" value="Post Your Thought">
-                                <!-- drop down menu for boards -->
-                                <p><div class="dropdown button">
-                                    <div>Which Board?</div>
-                                    <div class="dropdown-content">
-                                    <p>Test</p>
-                                    <p>Test2</p>
-                                    <p>Test3</p>
-                                    </div>
-                                <!-- closing div of drop down menu -->
-                                    </div>
-                                </p>
-                        
-                                <!-- drop down menu for topics -->
-                                <div class="dropdown button">
-                                    <div>Which Topic?</div>
-                                        <div class="dropdown-content">
-                                        <p>Test</p>
-                                        <p>Test2</p>
-                                        <p>Test3</p>
-                                        </div>
-                                <!-- closing div of drop down menu -->
-                                </div>
-                             
-                </form>
-            </div>
-        </div>
-        <!-- end of new posts -->
         
 
         <!-- posts -->
-        <h1 class="font-233 fs-1rem t-a-c">Latest Chatter</h1>
+        <h1 class="font-233 fs-2rem_lg fs-1rem_sm fs-2rem_md t-a-c mb-1em_lg">Latest Chatter</h1>
         <div class="d-f jc-center">
             <div class="speechbox ml-3em mr-3em mb-1em">
                 <div>This is where the username will go
@@ -148,8 +109,8 @@
                 </div>
             </div>
         </div>
-        <div class="d-f jc-center">
-            <div class="speechbox2 ml-5em mr-1em mb-1em">
+        <div class="d-f jc-center mb-2em_lg mb1em_sm">
+            <div class="speechbox2 ml-5em mr-1em">
                 <div>This is where the username will go
                 </div>
                 <div>This is a post
@@ -159,8 +120,17 @@
         
         <!-- End of posts -->
 
-        <!-- footer -->
-        <!-- end of footer -->
+        <!-- Recent board -->
+
+        <h1 class="font-233 fs-2rem_lg fs-1rem_sm fs-2rem_md t-a-c mb-1em_lg">Latest Board</h1>
+        <div class="d-f jc-center">
+            <div class="box_lg box_md box_sm ml-3em mr-3em mb-1em">
+                <div>Board name
+                </div>
+            </div>
+        </div>
+
+        <!-- End of recent board -->
 
     <!-- end of wrapping div -->
     </div>

@@ -118,17 +118,30 @@ module.exports = function(app) {
     });
 
     //The Messages Page - Featuring Sarah Chalke
-    app.get("boards/:board/:topic", function(req, res) {
+    app.get("/boards/:board/:topic", function(req, res) {
         db.Topic.findOne({
             where: {
-
+                BoardId: req.params.board,
+                id: req.params.topic,
             },
             include: [
                 {
-                    model: db.Post,
-
+                    model: db.Post, 
+                    where: {
+                        TopicId: req.params.topic,
+                    },
+                    include: [
+                        {
+                            model: db.User,
+                            attributes: ['username']
+                        }
+                    ],
                 }
             ]
-        })
-    })
+        }).then(function(messageResults) {
+            let data = messageResults;
+            console.log(data);
+            res.json(data);
+        });
+    });
 }

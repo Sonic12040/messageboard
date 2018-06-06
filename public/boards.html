@@ -4,10 +4,15 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" 
+      type="image/png" 
+      href="./images/favicon.ico" />
     <title>Message Board</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSS Reset stylesheet link -->
     <link rel="stylesheet" type="text/css" media="screen" href="./css/reset.css" />
+      <!-- Font Awesome Links -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <!-- Google Font links (must be after reset and before CSS) -->
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <!-- For Neon Sign -->
@@ -17,10 +22,10 @@
     <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
     <!-- Jquery stylesheet hyper link + AJAX -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- link to javascript link -->
+  
  
 </head>
-<body class="bg-brick font-Poppins"> 
+<body class="bg-brick font-Poppins mb-menu-push"> 
 
     <!-- Modals NEED TO BE HERE so they fully cover background -->
     <div class="js-login-modal bg-login d-n pos-f z-index-1 fade-in">
@@ -49,28 +54,47 @@
             <form action="/api/createuser" method="post">
                 <input type="text-modal" name="name" placeholder="Username" required="required" />
                 <input type="password" name="password" placeholder="Password" required="required" />
-                <p><button class="js-newuser" type="submit">Sign Up!</button>
+                <p><button class="js-newuser button" type="submit">Sign Up!</button>
                 </p>
             </form>
         </div>
     </div>
 
     <!-- header -->
-
-    <!-- Put Hamburger Menu Here -->
-    <div class="d-f f-s">
-            hamburger menu placeholder
-        </div>
-
-    <!-- Login Options -->
-    <div class="d-f f-e">
-
-        <input type="button" class="js-login-button button" value="Login">
-        <!-- <input type="button" class="button" value="Logout">  -->
-        <input type="button" class="js-signup-button button" value="Sign Up">
+    <div class="d-f s-b">
+        <!-- Put Hamburger Menu Here -->
+        <div class="f-s">
+                <i id="js-mb-toggle" class="fas fa-bars font-233 mb-menu-icon ml-01em"></i>
+                
+                
+                <nav id="js-mb-menu" class="mb-menu mb-menu-vertical">
+                    <div class="d-f s-b">
+                        <h1 class="o-0 f-g font-effect-neon neontxt_lg neontxt_md neontxt_sm t-a-c mb-1em_lg mt-05em">Menu</h1>
+                        <i id="js-mb-toggle-off" class="fas fa-times font-233 mb-menu-icon mr-01em"></i>
+                    </div>
+                       
+                        <ul class="menu-ul">
+                           <li class="t-a-c mb-3em mt-05em"><a href="#" class="menu-link fs-018rem fs-1rem_sm fs-2rem_md">Login</a></li>
+                           <li class="t-a-c mb-3em mt-05em"><a href="#" class="menu-link fs-018rem fs-1rem_sm fs-2rem_md">Sign Up</a></li>
+                           <li class="t-a-c mb-3em mt-05em"><a href="#" class="menu-link fs-018rem fs-1rem_sm fs-2rem_md">Posts</a></li>
+                           <li class="t-a-c mb-3em mt-45vh_lg"><a href="#" class="menu-link fs-018rem fs-1rem_sm fs-2rem_md">Logout</a></li>
+                        </ul>   
+                    </nav>
         
+            </div>
+
+        <!-- Login Options -->
+        <div class="f-e">
+
+            <input type="button" class="js-login-button button" value="Login">
+            <!-- <input type="button" class="button" value="Logout">  -->
+            <input type="button" class="js-signup-button button" value="Sign Up">
+            
+        </div>
     </div>
          
+     <!-- end of header -->
+     <div class="wrapper">
         <!-- Neon Sign -->
         <div class="d-f jc-center mb-2em_lg mb1em_sm">
             <div class="neoncircle_lg neoncircle_md neoncircle_sm neonflare">
@@ -120,17 +144,14 @@
                     </div>
                 </div>
             </div>
-        
-        </div>
-        <!-- end of boards -->
-        
+    </div>
 
-        <!-- footer -->
-        <!-- end of footer -->
+</div>
+<!-- end of boards -->
 
     <!-- end of wrapping div -->
     </div>
-
+</div>
 
     <script src="./js/index.js"></script>  
 </body>

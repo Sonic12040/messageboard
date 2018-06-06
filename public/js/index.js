@@ -45,6 +45,49 @@ $( document ).ready(function() {
         $(".js-posts-expand").toggleClass("expand");
     })
 
+    //Hamburger Menu
+
+    // hide menu
+    $( "#js-mb-menu").hide(); 
+    $( "#js-mb-toggle-off").hide(); 
+
+
+    //show menu
+    $( "#js-mb-toggle" ).on('click', function() {
+         $(".wrapper").addClass("mb-menu-push-toright");
+        $(".wrapper").animate({
+            marginleft: '+=300px'
+        }, 500);
+        
+        $( "#js-mb-menu" ).animate( {width: 'toggle'},  function()
+                {   
+                        $( "#js-mb-toggle" ).hide();
+                        $( "#js-mb-toggle-off").show(); 
+                        
+            
+                 });
+        });
+
+     //hide menu on click   
+     $( "#js-mb-toggle-off" ).on('click', function() {
+
+        $(".wrapper" ).removeClass( "mb-menu-push-toright" );
+        $(".wrapper").animate({
+            marginleft: '-=300px'
+        }, 500);
+        
+	
+        $( "#js-mb-menu" ).animate( {width: 'toggle'}, function()
+                {
+                        $( "#js-mb-toggle-off" ).hide();
+                        $( "#js-mb-toggle" ).show();
+                       
+            
+                 });
+        });
+        
+        
+
 
 
 

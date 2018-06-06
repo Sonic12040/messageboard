@@ -1,18 +1,21 @@
 /* A */
 
 /* unvisited link */
-a:link {
+a{
     color: rgba(233,233,233);
 }
 
 /* visited link */
 a:visited {
-    color: blue;
+    color: rgba(233,233,233);
 }
 
 /* mouse over link */
 a:hover {
-    color: hotpink;
+    text-shadow: 0 0 0.1em #fff, 0 0 0.2em #fff, 0 0 0.3em #fff, 0 0 0.4em #f7f, 0 0 0.6em #f0f, 0 0 0.8em #f0f, 0 0 1em #f0f, 0 0 1.2em #f0f;
+    color: #fff;
+
+		
 }
 
 
@@ -280,6 +283,10 @@ input[type=password] {
     margin-left: 1em; 
 }
 
+.ml-01em {
+    margin-left: .1em; 
+}
+
 .ml-3em {
     margin-left: 3em;
   }
@@ -308,6 +315,10 @@ input[type=password] {
 
   .mb-1em {
     margin-bottom: 1em;
+  }
+
+  .mb-3em {
+    margin-bottom: 3em;
   }
 
  /* menu  */
@@ -359,15 +370,22 @@ input[type=password] {
 
        .menu-ul {
         list-style-type: none;
+        margin-top: 8em;
+
+       } 
+
+       .menu-ul li {
+        height: 30%;
+        width: 100%;
+        position: relative;
 
        } 
 
        .menu-link {
         text-decoration: none;
-        /* height: 16.6%;
-        width: 100%;
-        position: relative;
-        top: 50%; */
+        color: rgba(233,233,233);
+        /* position: absolute; */
+        /* top: 30%; */
 
        }
 
@@ -688,6 +706,10 @@ and (min-width: 980px)
 
     .mt-30vh_lg {
         margin-top: 30vh;
+    }
+
+    .mt-40vh_lg {
+        margin-top: 40vh;
     }
 
     .mb-1em_lg {

@@ -19,7 +19,7 @@ app.use(passport.session());
 //Route Imports
 require("./routes/api-routes") (app, passport);
 require("./routes/html-routes") (app, passport);
-var authRoute = require('./routes/auth-routes.js')(app,passport);
+var authRoute = require("./routes/auth-routes.js") (app,passport);
 require('./config/passport.js')(passport, db.User);
 
 db.sequelize.sync({}).then(function() {

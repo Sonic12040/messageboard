@@ -332,7 +332,7 @@ input[type=password] {
         }
 
     .mb-menu-icon {
-        font-size: 45px; 
+        font-size: 2.6rem; 
        
 
     }
@@ -340,7 +340,7 @@ input[type=password] {
   
         
     .mb-menu-vertical {
-        width: 16rem; 
+        width: 14rem; 
         height: 100%; 
         top: 0; 
         left: 0;
@@ -356,15 +356,15 @@ input[type=password] {
 
     .mb-menu-push-toright {
             /* margin-left: 300px; */
-            -ms-transform: translateX(16rem);
-        transform: translateX(16rem);
+            -ms-transform: translateX(14rem);
+        transform: translateX(14rem);
         transition: transform 0.2s ease;
         }
 
      .mb-menu-push-toleft {
             /* margin-left: -300px; */
-            -ms-transform: translateX(-16rem);
-            transform: translateX(-16rem);
+            -ms-transform: translateX(-14rem);
+            transform: translateX(-14rem);
             transition: transform 0.2s ease;
         }
 
@@ -384,8 +384,7 @@ input[type=password] {
        .menu-link {
         text-decoration: none;
         color: rgba(233,233,233);
-        /* position: absolute; */
-        /* top: 30%; */
+        
 
        }
 
@@ -708,8 +707,8 @@ and (min-width: 980px)
         margin-top: 30vh;
     }
 
-    .mt-40vh_lg {
-        margin-top: 40vh;
+    .mt-45vh_lg {
+        margin-top: 45vh;
     }
 
     .mb-1em_lg {
@@ -719,6 +718,11 @@ and (min-width: 980px)
     .fs-2rem_lg {
         font-size: 2.5rem;
     }
+
+    .fs-018rem {
+        font-size: 1.8rem;
+    }
+
 
     .mb-2em_lg {
         margin-bottom: 2em; 

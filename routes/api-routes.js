@@ -7,19 +7,10 @@ module.exports = function(app) {
     
 
     //creating the user! TRON
-    app.post("/api/createuser", function(req, res) {
-    //In jquery pass this information as an object.
-        db.User.create({
-            username: req.body.username,
-            password: req.body.password
-        }).then((dbUsers) => {
-            res.json(dbUsers);
-        });
-    });
 
 
 
-    app.post("/api/getusers", function(req, res){
+    app.post("/api/login", function(req, res){
         db.User.findOne({
             where: {
                 username: req.body.username,
@@ -32,7 +23,7 @@ module.exports = function(app) {
     });
 
     //Create board
-    app.post("/api/createboard", function(req, res){
+    app.post("/api/createboard", isLoggedIn, function(req, res){ //To Do: Check Is Logged In for if it works here!
         //Create an if statement to see if the user is an admin
         db.Board.create({
             title: req.body.title,

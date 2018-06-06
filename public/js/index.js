@@ -68,7 +68,7 @@ $( document ).ready(function() {
                  });
         });
 
-    //  //hide menu on click   
+     //hide menu on click   
      $( "#js-mb-toggle-off" ).on('click', function() {
 
         $(".wrapper" ).removeClass( "mb-menu-push-toright" );
@@ -85,6 +85,7 @@ $( document ).ready(function() {
             
                  });
         });
+        
         
 
 

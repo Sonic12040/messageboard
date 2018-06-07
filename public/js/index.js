@@ -1,5 +1,94 @@
 $( document ).ready(function() {
 
+ /*  Submit and Ajax call for login page begin */   
+        
+
+    	// SUBMIT FORM
+        $("#submit").submit(function(event) {
+            // Prevent the form from submitting via the browser.
+            event.preventDefault();
+            ajaxPost();
+        });
+        
+        
+        function ajaxPost(){
+            
+            // PREPARE FORM DATA
+            var formData = {
+                username : $("#username-js").val().trim(),
+                password :  $("#password-js").val().trim()
+            }
+            
+            // DO POST
+            $.ajax({
+                method : "POST",
+                contentType : "application/json",
+                url : window.location + "/api/login",
+                data : JSON.stringify(formData),
+                dataType : 'json',
+                success : function(user) {
+                    $("#postUser").html("<p>" + 
+                        "Welcome <br>" + user.username + "</p>"); 
+                },
+                error : function(e) {
+                    alert("Error!")
+                    console.log("ERROR: ", e);
+                }
+            });
+            
+            // Reset FormData after Posting
+            resetData();
+     
+        }
+        
+        function resetData(){
+            $("#username-js").val("");
+            $("#password-js").val("");
+        }
+
+
+
+ /*  Submit and Ajax call for login page ends */   
+
+
+  /*  Boards Ajax call */          
+
+        $.ajax({
+            method: "GET",
+            url: "/api/boards"
+        }).then(function(response){
+          
+
+            for (let i = 0; i < response.length; i++) {
+                let board = response[i];
+
+
+                let boardName = $('<div class="button js-topic">').text(board.title);
+
+                let postsExpand = $('<div class="js-posts-expand expand">');
+
+                let alignBoxes = $('<div class="d-f jc-center">');
+                
+                let boardDescDiv = $('<div class="speechbox2 ml-3em mr-3em mb-1em">').text(board.description);
+
+                
+
+                let crazy = postsExpand.append(alignBoxes)
+                                       .append(boardDescDiv);
+                
+    
+                $("#boardResults").append(boardName + crazy);
+                                
+
+           
+
+            }
+           
+        });
+
+
+        // js-boardname
+        //js-boarddesc
     
     $(".js-login-button").on('click', function(event) {
         // event.preventDefault();

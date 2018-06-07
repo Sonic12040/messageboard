@@ -35,7 +35,7 @@ module.exports = function(app) {
     });
 
     //Create topic
-    app.post("/api/createtopic", function(req, res){
+    app.post("/api/createtopic", isLoggedIn, function(req, res){
         console.log(req.body);
         //We need to pass through the object containing the below case sensitive fields in JSON format.
         db.Topic.create({
@@ -48,7 +48,7 @@ module.exports = function(app) {
     });
 
     //Create post
-    app.post("/api/createpost", function(req, res){
+    app.post("/api/createpost", isLoggedIn, function(req, res){
     //We need to pass through the object containing the below case sensitive fields in JSON format.
         db.Post.create({
             content: req.body.content,

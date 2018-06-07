@@ -1,5 +1,6 @@
 var db = require("../models");
 const bcrypt = require("bcrypt");
+const isLoggedIn = require("./isLoggedIn");
 // let passportlocal = require("passport-local");
 
 module.exports = function(app) {
@@ -22,8 +23,13 @@ module.exports = function(app) {
         });
     });
 
+<<<<<<< HEAD
     // Create board
     app.post("/api/createboard", function(req, res){ //To Do: Check Is Logged In for if it works here!
+=======
+
+    app.post("/api/createboard", isLoggedIn, function(req, res){ //To Do: Check Is Logged In for if it works here!
+>>>>>>> 6d6ed4ff8ad21521ae13d4adb78acbcf0be22049
         //Create an if statement to see if the user is an admin
         db.Board.create({
             title: req.body.title,
@@ -34,7 +40,7 @@ module.exports = function(app) {
     });
 
     //Create topic
-    app.post("/api/createtopic", function(req, res){
+    app.post("/api/createtopic", isLoggedIn, function(req, res){
         console.log(req.body);
         //We need to pass through the object containing the below case sensitive fields in JSON format.
         db.Topic.create({
@@ -47,7 +53,7 @@ module.exports = function(app) {
     });
 
     //Create post
-    app.post("/api/createpost", function(req, res){
+    app.post("/api/createpost", isLoggedIn, function(req, res){
     //We need to pass through the object containing the below case sensitive fields in JSON format.
         db.Post.create({
             content: req.body.content,

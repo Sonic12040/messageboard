@@ -1,5 +1,6 @@
 var path = require("path");
 
+
 module.exports = function(app, passport) {
     app.get('/signup', function(req, res){
         res.sendFile(path.join(__dirname, "../public/signup.html"));
@@ -21,16 +22,6 @@ module.exports = function(app, passport) {
             res.redirect('/');
         });
     });
- 
-//     function isLoggedIn(req, res, next) {
- 
-//         if (req.isAuthenticated())
-         
-//             return next();
-             
-//         res.redirect('/signin');
-     
-//     }
- 
+
 }
 

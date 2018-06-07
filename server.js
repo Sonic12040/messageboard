@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(express.static("public"));
 app.use(session({ secret: 'Daniels Dirty Dogs',resave: true, saveUninitialized:true})); // session secret
+require('./config/passport.js')(passport, db.User);
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -20,7 +21,7 @@ app.use(passport.session());
 require("./routes/api-routes") (app, passport);
 require("./routes/html-routes") (app, passport);
 var authRoute = require("./routes/auth-routes.js") (app,passport);
-require('./config/passport.js')(passport, db.User);
+
 
 db.sequelize.sync({}).then(function() {
     app.listen(PORT, function() {

@@ -1,5 +1,6 @@
 var db = require("../models");
 const bcrypt = require("bcrypt");
+const isLoggedIn = require("./isLoggedIn");
 // let passportlocal = require("passport-local");
 
 module.exports = function(app) {
@@ -22,16 +23,16 @@ module.exports = function(app) {
         });
     });
 
-    //Create board
-    // app.post("/api/createboard", isLoggedIn, function(req, res){ //To Do: Check Is Logged In for if it works here!
-    //     //Create an if statement to see if the user is an admin
-    //     db.Board.create({
-    //         title: req.body.title,
-    //         description: req.body.description
-    //     }).then((dbBoard) => {
-    //         res.json(dbBoard);
-    //     });
-    // });
+
+    app.post("/api/createboard", isLoggedIn, function(req, res){ //To Do: Check Is Logged In for if it works here!
+        //Create an if statement to see if the user is an admin
+        db.Board.create({
+            title: req.body.title,
+            description: req.body.description
+        }).then((dbBoard) => {
+            res.json(dbBoard);
+        });
+    });
 
     //Create topic
     app.post("/api/createtopic", function(req, res){

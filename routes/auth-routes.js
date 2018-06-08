@@ -10,6 +10,13 @@ module.exports = function(app, passport) {
         res.sendFile(path.join(__dirname, "../public/login.html"));
     });
 
+    app.post('/api/signin', passport.authenticate('local-signin', 
+        {
+            successRedirect: '/',
+            failureRedirect: '/signin'
+        }
+    ));
+
     app.post('/api/createuser', passport.authenticate('local-signup', 
         {
             successRedirect: '/',

@@ -1,4 +1,4 @@
 module.exports = function(req, res, next){
-    if (req.User) return next();  
+    if (req.user) return next();  
         res.redirect('/');
 }

@@ -20,6 +20,8 @@ module.exports = function(app, passport) {
 
     //Create another route that gets the current user
 
+    
+    // Create board
     app.post("/api/createboard", isLoggedIn, function(req, res){
         //Create an if statement to see if the user is an admin
         db.Board.create({

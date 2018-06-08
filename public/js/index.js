@@ -51,40 +51,39 @@ $( document ).ready(function() {
  /*  Submit and Ajax call for login page ends */   
 
 
-  /*  Boards Ajax call */          
+  /*  Boards Ajax call */   
+  
+  function boardsPost() { 
 
         $.ajax({
             method: "GET",
             url: "/api/boards"
         }).then(function(response){
           
-
             for (let i = 0; i < response.length; i++) {
                 let board = response[i];
 
-
                 let boardName = $('<div class="button js-topic">').text(board.title);
-
                 let postsExpand = $('<div class="js-posts-expand expand">');
-
                 let alignBoxes = $('<div class="d-f jc-center">');
-                
                 let boardDescDiv = $('<div class="speechbox2 ml-3em mr-3em mb-1em">').text(board.description);
 
+                let boardHTML = postsExpand.append(alignBoxes)
+                                           .append(boardDescDiv);
                 
+                 $("#boardResults").empty();
+                 $("#boardResults").append(boardName, boardHTML);
 
-                let crazy = postsExpand.append(alignBoxes)
-                                       .append(boardDescDiv);
-                
-    
-                $("#boardResults").append(boardName + crazy);
-                                
-
-           
 
             }
            
         });
+
+
+    }
+
+    //display data on boards page
+    boardsPost();
 
 
         // js-boardname
@@ -142,7 +141,10 @@ $( document ).ready(function() {
 
 
     //show menu
-    $( "#js-mb-toggle" ).on('click', function() {
+    $( "#js-mb-toggle" ).on('click', function(event) {
+         // Prevent menu showing via the browser.
+        event.preventDefault();
+
          $(".wrapper").addClass("mb-menu-push-toright");
         $(".wrapper").animate({
             marginleft: '+=300px'
@@ -158,7 +160,10 @@ $( document ).ready(function() {
         });
 
      //hide menu on click   
-     $( "#js-mb-toggle-off" ).on('click', function() {
+     $( "#js-mb-toggle-off" ).on('click', function(event) {
+           // Prevent menu showing via the browser.
+        event.preventDefault();
+
 
         $(".wrapper" ).removeClass( "mb-menu-push-toright" );
         $(".wrapper").animate({

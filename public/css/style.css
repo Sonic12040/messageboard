@@ -653,6 +653,10 @@ input[type=password] {
 
 /* T */
 
+.t-d {
+    text-decoration: none;
+}
+
 .t-a-r{
     text-align: right;
 }

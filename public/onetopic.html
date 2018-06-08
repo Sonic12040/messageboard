@@ -107,6 +107,10 @@
   <h1 class="font-233 fs-1rem t-a-c">Skim through boards and topics.</h1>
   <div class="ml-3em mr-3em d-f jc-center mb-1em">
       <div class="speechform">
+
+        <div id="topicResults"></div>
+
+
           <div>Board name</div>
               <div>
                   <div class="button js-topic">Topic name</div>
@@ -132,7 +136,16 @@
                       <!-- End of posts -->
                   </div>
 
-                  
+                  <!-- app.post("/api/createpost", isLoggedIn, function(req, res){
+                    //We need to pass through the object containing the below case sensitive fields in JSON format.
+                        db.Post.create({
+                            content: req.body.content,
+                            UserId: req.body.UserId,
+                            TopicId: req.body.TopicId
+                        }).then((dbPost) => {
+                            res.json(dbPost);
+                        });
+                    }); -->
 
                     <!-- New post section -->
                     <div class="ml-3em mr-3em d-f jc-center mb-1em">

@@ -82,12 +82,40 @@ $( document ).ready(function() {
 
     }
 
+    function topicsPost() { 
+
+        $.ajax({
+            method: "GET",
+            url: "/api/boards/:board/:topic"
+        }).then(function(response){
+          
+            for (let i = 0; i < response.length; i++) {
+                let board = response[i];
+
+                let topicName = $('<div class="button js-topic">').text(topic.title);
+                let postsExpand = $('<div class="js-posts-expand expand">');
+                let alignBoxes = $('<div class="d-f jc-center">');
+                let boardDescDiv = $('<div class="speechbox2 ml-3em mr-3em mb-1em">').text(topic.description);
+
+                let boardHTML = postsExpand.append(alignBoxes)
+                                           .append(boardDescDiv);
+                
+                 $("#topicResults").empty();
+                 $("#topicResults").append(topicName, topicHTML);
+
+
+            }
+           
+        });
+
+
+    }
+
     //display data on boards page
     boardsPost();
+    topicsPost();
 
 
-        // js-boardname
-        //js-boarddesc
     
     $(".js-login-button").on('click', function(event) {
         // event.preventDefault();

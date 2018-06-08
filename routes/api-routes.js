@@ -59,7 +59,7 @@ module.exports = function(app, passport) {
 
 
     //The Boards Page - Featuring Zach Braff
-    app.get("/api/boards", function(req, res) {
+    app.get("/api/boards", isLoggedIn, function(req, res) {
         db.Board.findAll({
             attributes: ['id', 'title', 'description'],
             include: [

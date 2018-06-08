@@ -1,11 +1,20 @@
 {
   "development": {
+<<<<<<< HEAD
     "username": "ClassUser",
     "password": "password",
     "database": "messageboardDB",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "port": 3307
+=======
+    "username": "root",
+    "password": "",
+    "database": "messageboardDB",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "port": 3306
+>>>>>>> a88563a048452392fe473892203e68b5f0ee6ae7
   },
   "test": {
     "username": "root",

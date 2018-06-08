@@ -30,10 +30,10 @@ $( document ).ready(function() {
                     $("#postUser").html("<p>" + 
                         "Welcome <br>" + user.username + "</p>"); 
                 },
-                error : function(e) {
-                    alert("Error!")
-                    console.log("ERROR: ", e);
-                }
+                // error : function(e) {
+                //     alert("Error!")
+                //     console.log("ERROR: ", e);
+                // }
             });
             
             // Reset FormData after Posting

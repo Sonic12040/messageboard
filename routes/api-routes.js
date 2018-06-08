@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const isLoggedIn = require("./isLoggedIn");
 // let passportlocal = require("passport-local");
 
-module.exports = function(app) {
+module.exports = function(app, passport) {
 
     
 
@@ -12,19 +12,15 @@ module.exports = function(app) {
 
 
     app.post("/api/login", function(req, res){
-        db.User.findOne({
-            where: {
-                username: req.body.username,
-                password: req.body.password
-            }
-        }).then(function(result) {
-            console.log(result);
-            res.json(result);
-        });
+        passport.authenticate('local', {
+            failureRedirect: '/login' },
+            (req,res) => res.redirect('/')
+        );
     });
 
+    //Create another route that gets the current user
 
-    app.post("/api/createboard", isLoggedIn, function(req, res){ //To Do: Check Is Logged In for if it works here!
+    app.post("/api/createboard", isLoggedIn, function(req, res){
         //Create an if statement to see if the user is an admin
         db.Board.create({
             title: req.body.title,

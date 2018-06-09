@@ -65,7 +65,7 @@ $( document ).ready(function() {
         console.log("Last Object: ", lastObj[0].title);
 
         let alignBoxes = $('<div class="d-f jc-center">');
-        let boardBox = $('<div class="box_lg box_md box_sm ml-3em mr-3em mb-1em">').html('<a href="/boards/' + boardId + '" target="">' + lastObj[0].title + '</a><div class="speechbox ml-3em mr-3em mb-1em">' + boardDesc + '</div>');
+        let boardBox = $('<div class="box_lg box_md box_sm ml-3em mr-3em mb-1em">').html('<div class="bbutton"><a href="/boards/' + boardId + '" target="">' + lastObj[0].title + '</a></div><div class="speechbox ml-3em mr-3em mb-1em">' + boardDesc + '</div>');
 
         let boardHTML = alignBoxes.append(boardBox);
                                     
@@ -92,7 +92,7 @@ $( document ).ready(function() {
                 console.log('Board: ', board);
                 let boardId = response[i].id;
 
-                let boardName = $('<div class="">').html('<a href ="/boards/' + boardId + '" target="">' + board.title + '</a>');
+                let boardName = $('<div class="bbutton">').html('<a href ="/boards/' + boardId + '" target="">' + board.title + '</a>');
                 let alignBoxes = $('<div class="d-f jc-center">');
                 let boardDescDiv = $('<div class="speechbox ml-3em mr-3em mb-1em">').text(board.description);
 
@@ -185,6 +185,7 @@ $( document ).ready(function() {
     topicsPost();
     indexPage();
     createTopic();
+    
 
 
     
@@ -235,6 +236,18 @@ $( document ).ready(function() {
 
     //Hamburger Menu
 
+    //responsive menu code
+
+    function checkSize(){
+        if ($(".menuCheck").css("display") == "none" ){
+
+            $("#js-mb-menu").addClass("mb-menu-overlay");
+            $("#js-mb-menu").removeClass("mb-menu");
+            $("#js-mb-menu").removeClass("mb-menu-vertical");
+
+        }
+    }
+
     // hide menu
     $( "#js-mb-menu").hide(); 
     $( "#js-mb-toggle-off").hide(); 
@@ -244,7 +257,10 @@ $( document ).ready(function() {
     $( "#js-mb-toggle" ).on('click', function(event) {
          // Prevent menu showing via the browser.
         event.preventDefault();
+        checkSize();
 
+        $(".speechform").addClass("speechform-menu");
+        $(".speechform").removeClass("speechform");
          $(".wrapper").addClass("mb-menu-push-toright");
         $(".wrapper").animate({
             marginleft: '+=300px'
@@ -264,7 +280,8 @@ $( document ).ready(function() {
            // Prevent menu showing via the browser.
         event.preventDefault();
 
-
+        $(".speechform-menu").addClass("speechform");
+        $(".speechform").removeClass("speechform-menu");
         $(".wrapper" ).removeClass( "mb-menu-push-toright" );
         $(".wrapper").animate({
             marginleft: '-=300px'

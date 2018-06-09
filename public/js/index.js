@@ -89,7 +89,6 @@ $( document ).ready(function() {
           
             for (let i = 0; i < response.length; i++) {
                 let board = response[i];
-                console.log('Board: ', board);
                 let boardId = response[i].id;
 
                 let boardName = $('<div class="mb-1em button">').html('<a href ="/boards/' + boardId + '" target="">' + board.title + '</a>');
@@ -113,24 +112,26 @@ $( document ).ready(function() {
 
         $.ajax({
             method: "GET",
-            url: "/api/boards/:boards/:topics"
+            url: "/api" + window.location.pathname
         }).then(function(response){
-          
-            for (let i = 0; i < response.length; i++) {
-                let board = response[i];
+            console.log(window.location);
+            console.log("Boards response: ", response);
 
-                let boardName = $('<div class="button js-topic">').text(board.title);
+        console.log("Board Title: " + response.title);
+        let boardName = $('<div class="button js-topic">').text(response.title);
+
+            for (let p = 0; p < response.Topics.length; p++) {
+                let topic = response.Topics[p];
+                console.log("Topic: ", topic);
                 let postsExpand = $('<div class="js-posts-expand expand">');
                 let alignBoxes = $('<div class="d-f jc-center">');
-                let boardDescDiv = $('<div class="speechbox2 ml-3em mr-3em mb-1em">').text(board.topic.topicId);
+                let boardDescDiv = $('<div class="speechbox2 ml-3em mr-3em mb-1em">').text(topic.topicId);
 
                 let topicHTML = postsExpand.append(alignBoxes)
                                            .append(boardDescDiv);
                 
-                 $("#topicResults").empty();
+                //  $("#topicResults").empty();
                  $("#topicResults").append(boardName, topicHTML);
-                
-                 console.log("Is this working?");
 
             }
            
@@ -145,17 +146,17 @@ $( document ).ready(function() {
 
         $(".js-newtopic").on('click', function(event){
             event.preventDefault(); 
+
             $.ajax({
                 method: "POST",
                 url: "/api/createtopic",
                 data: {
                     topicName: $('#topicName').val().trim(),
                     UserId: 1,
-                    BoardId: 1
                 }
             }).then(function(response) {
 
-                console.log("Response: " + response[0]);
+                console.log("Response Test: " + response[0]);
                 return response;
 
             })
@@ -164,14 +165,12 @@ $( document ).ready(function() {
                 method: "POST",
                 url: "/api/createpost",
                 data: {
-                    content: $('#postContent').val().trim(),
-                    TopicId: response.TopicId,
-                    UserId: 1
+                    content: "The best content ever!",
+                    TopicId: 1,
                 }
             }).then(function(responseTwo) {
                 console.log("ResponseTwo!!!!!!!!!!!!!!!!!!!!: " + responseTwo);
             })
-
         });
 
 
@@ -192,7 +191,6 @@ $( document ).ready(function() {
     $(".js-login-button").on('click', function(event) {
         // event.preventDefault();
         $(".js-login-modal").toggleClass("d-n");
-        console.log("this worked");   
     });
 
     // For X button on login modal
@@ -204,7 +202,6 @@ $( document ).ready(function() {
     $(".js-signup-button").on('click', function(event) {
         // event.preventDefault();
         $(".js-signup-modal").toggleClass("d-n");
-        console.log("this worked, too!!");
     });
 
     // For X button on signup modal
@@ -296,10 +293,6 @@ $( document ).ready(function() {
             
                  });
         });
-        
-        
+    
 
-
-
-
-});
+}); 

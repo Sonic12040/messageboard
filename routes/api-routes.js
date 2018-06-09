@@ -38,7 +38,7 @@ module.exports = function(app, passport) {
         //We need to pass through the object containing the below case sensitive fields in JSON format.
         db.Topic.create({
             topicName: req.body.topicName,
-            UserId: req.body.UserId,
+            UserId: req.user.id,
             BoardId: req.body.BoardId
         }).then((dbTopic) => {
             res.json(dbTopic);
@@ -50,7 +50,7 @@ module.exports = function(app, passport) {
     //We need to pass through the object containing the below case sensitive fields in JSON format.
         db.Post.create({
             content: req.body.content,
-            UserId: req.body.UserId,
+            UserId: req.user.id,
             TopicId: req.body.TopicId
         }).then((dbPost) => {
             res.json(dbPost);

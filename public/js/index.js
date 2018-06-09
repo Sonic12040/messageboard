@@ -64,8 +64,8 @@ $( document ).ready(function() {
 
         console.log("Last Object: ", lastObj[0].title);
 
-        let alignBoxes = $('<div class="d-f jc-center">');
-        let boardBox = $('<div class="box_lg box_md box_sm ml-3em mr-3em mb-1em">').html('<div class="bbutton"><a href="/boards/' + boardId + '" target="">' + lastObj[0].title + '</a></div><div class="speechbox ml-3em mr-3em mb-1em">' + boardDesc + '</div>');
+        let alignBoxes = $('<div class="">');
+        let boardBox = $('<div class="">').html('<a href="/boards/' + boardId + '" class="button" target="">' + lastObj[0].title + '</a><div class="speechbox ml-3em mr-3em mb-1em">' + boardDesc + '</div>');
 
         let boardHTML = alignBoxes.append(boardBox);
                                     
@@ -92,7 +92,7 @@ $( document ).ready(function() {
                 console.log('Board: ', board);
                 let boardId = response[i].id;
 
-                let boardName = $('<div class="bbutton">').html('<a href ="/boards/' + boardId + '" target="">' + board.title + '</a>');
+                let boardName = $('<div class="mb-1em button">').html('<a href ="/boards/' + boardId + '" target="">' + board.title + '</a>');
                 let alignBoxes = $('<div class="d-f jc-center">');
                 let boardDescDiv = $('<div class="speechbox ml-3em mr-3em mb-1em">').text(board.description);
 

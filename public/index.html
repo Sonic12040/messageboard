@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="icon" 
       type="image/png" 
-      href="./images/favicon.ico" />
+      href="/images/favicon.ico" />
 <title>Message Board</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- CSS Reset stylesheet link -->
-<link rel="stylesheet" type="text/css" media="screen" href="./css/reset.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/reset.css" />
 <!-- Font Awesome Links -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 <!-- Google Font links (must be after reset and before CSS) -->
@@ -18,7 +18,7 @@
 <link href="https://fonts.googleapis.com/css?family=Courgette&effect=neon" rel="stylesheet">
 <!-- for text -->
 <!-- CSS style sheet link -->
-<link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/style.css" />
 <!-- Jquery stylesheet hyper link + AJAX -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
@@ -111,37 +111,18 @@
     <!-- closing div for End of Sign --> 
   </div>
   
-  <!-- posts -->
-  <h1 class="font-233 fs-2rem_lg fs-1rem_sm fs-2rem_md t-a-c mb-1em_lg">Latest Chatter</h1>
-  <div class="d-f jc-center">
-    <div class="speechbox ml-3em mr-3em mb-1em">
-      <div>This is where the username will go </div>
-      <div>This is a post </div>
-    </div>
-  </div>
-  <div class="d-f jc-center mb-2em_lg mb1em_sm">
-    <div class="speechbox2 ml-5em mr-1em">
-      <div>This is where the username will go </div>
-      <div>This is a post </div>
-    </div>
-  </div>
-  
-  <!-- End of posts --> 
   
   <!-- Recent board -->
   
   <h1 class="font-233 fs-2rem_lg fs-1rem_sm fs-2rem_md t-a-c mb-1em_lg">Latest Board</h1>
-  <div class="d-f jc-center">
-    <div class="box_lg box_md box_sm ml-3em mr-3em mb-1em">
-      <div>Board name </div>
-    </div>
-  </div>
-  
+
+  <div id="boardIndex"></div>  
+
   <!-- End of recent board --> 
   
   <!-- end of wrapping div --> 
 </div>
 </div>
-<script src="./js/index.js"></script>
+<script src="/js/index.js"></script>
 </body>
 </html>

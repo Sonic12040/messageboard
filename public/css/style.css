@@ -1,22 +1,39 @@
-/* A */
-
-/* unvisited link */
 a{
-    color: rgba(233,233,233);
+    color: #435AB6;
 }
 
 /* visited link */
 a:visited {
-    color: rgba(233,233,233);
+    color: #213172;
 }
 
 /* mouse over link */
 a:hover {
+    text-shadow: 2px 2px 4px #213172;
+    color: #fff;
+
+		
+}
+
+/* menu links */
+
+li a{
+    color: rgba(233,233,233);
+}
+
+/* visited link */
+li a:visited {
+    color: rgba(233,233,233);
+}
+
+/* mouse over link */
+li a:hover {
     text-shadow: 0 0 0.1em #fff, 0 0 0.2em #fff, 0 0 0.3em #fff, 0 0 0.4em #f7f, 0 0 0.6em #f0f, 0 0 0.8em #f0f, 0 0 1em #f0f, 0 0 1.2em #f0f;
     color: #fff;
 
 		
 }
+
 
 
 
@@ -70,6 +87,20 @@ a:hover {
     font-family: 'Poppins', sans-serif;
     display: inline-block;
     font-size: 10px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+/* Board Buttons */
+.bbutton {
+    background-color: rgb(233,233,233);
+    border: none;
+    color: rgb(1,0,17);
+    padding: 15px 20px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    font-size: 15px;
     margin: 4px 2px;
     cursor: pointer;
 }
@@ -694,6 +725,9 @@ input[type=password] {
 }
 .width-7vw {
     width: 7vw;
+}
+.width-50 {
+    width: 50%;
 }
 
 /* wrapper */

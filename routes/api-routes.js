@@ -110,7 +110,7 @@ module.exports = function(app, passport) {
             ]
         }).then(function(topicResults) {
             let data = topicResults;
-            console.log(topicResults);
+            // console.log(topicResults);
             res.json(data);
         });
     });

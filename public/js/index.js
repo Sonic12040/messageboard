@@ -49,7 +49,32 @@ $( document ).ready(function() {
 
 
  /*  Submit and Ajax call for login page ends */   
+ function indexPage() { 
 
+    $.ajax({
+        method: "GET",
+        url: "/api/boards"
+    }).then(function(response){
+
+
+        $("#boardIndex").empty();
+        let lastObj = response.slice(-1);
+        let boardId = lastObj[0].id;
+        let boardDesc = lastObj[0].description;
+
+        console.log("Last Object: ", lastObj[0].title);
+
+        let alignBoxes = $('<div class="d-f jc-center">');
+        let boardBox = $('<div class="box_lg box_md box_sm ml-3em mr-3em mb-1em">').html('<a href="/boards/' + boardId + '" target="">' + lastObj[0].title + '</a><div class="speechbox ml-3em mr-3em mb-1em">' + boardDesc + '</div>');
+
+        let boardHTML = alignBoxes.append(boardBox);
+                                    
+        $("#boardIndex").append(boardHTML);
+
+    });
+
+
+}
 
   /*  Boards Ajax call */   
   
@@ -64,16 +89,15 @@ $( document ).ready(function() {
           
             for (let i = 0; i < response.length; i++) {
                 let board = response[i];
+                console.log('Board: ', board);
+                let boardId = response[i].id;
 
-                let boardName = $('<div class="button js-topic">').text(board.title);
-                let postsExpand = $('<div class="js-posts-expand expand">');
+                let boardName = $('<div class="">').html('<a href ="/boards/' + boardId + '" target="">' + board.title + '</a>');
                 let alignBoxes = $('<div class="d-f jc-center">');
-                let boardDescDiv = $('<div class="speechbox2 ml-3em mr-3em mb-1em">').text(board.description);
+                let boardDescDiv = $('<div class="speechbox ml-3em mr-3em mb-1em">').text(board.description);
 
-                let boardHTML = postsExpand.append(alignBoxes)
-                                           .append(boardDescDiv);
-                
-                 
+                let boardHTML = alignBoxes.append(boardDescDiv);
+                                 
              $("#boardResults").append(boardName, boardHTML);
 
 
@@ -117,10 +141,50 @@ $( document ).ready(function() {
 
 //for NEW POST 
 
+    function createTopic() {
+
+        $(".js-newtopic").on('click', function(event){
+            event.preventDefault(); 
+            $.ajax({
+                method: "POST",
+                url: "/api/createtopic",
+                data: {
+                    topicName: $('#topicName').val().trim(),
+                    UserId: 1,
+                    BoardId: 1
+                }
+            }).then(function(response) {
+
+                console.log("Response: " + response[0]);
+                return response;
+
+            })
+
+            $.ajax({
+                method: "POST",
+                url: "/api/createpost",
+                data: {
+                    content: $('#postContent').val().trim(),
+                    TopicId: response.TopicId,
+                    UserId: 1
+                }
+            }).then(function(responseTwo) {
+                console.log("ResponseTwo!!!!!!!!!!!!!!!!!!!!: " + responseTwo);
+            })
+
+        });
+
+
+    }
+
+    
+
 
     //display data on boards page
     boardsPost();
     topicsPost();
+    indexPage();
+    createTopic();
 
 
     
@@ -163,10 +227,11 @@ $( document ).ready(function() {
         });
     });
 
+
     //for topics to expand
-    $(".js-topic").on('click', function(event){
-        $(".js-posts-expand").toggleClass("expand");
-    })
+    // $(document).on('click', '.js-topic', function(event){
+    //     $(".js-posts-expand").toggleClass("expand");
+    // })
 
     //Hamburger Menu
 

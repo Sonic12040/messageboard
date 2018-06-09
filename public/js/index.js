@@ -59,6 +59,8 @@ $( document ).ready(function() {
             method: "GET",
             url: "/api/boards"
         }).then(function(response){
+
+            $("#boardResults").empty();
           
             for (let i = 0; i < response.length; i++) {
                 let board = response[i];
@@ -71,8 +73,8 @@ $( document ).ready(function() {
                 let boardHTML = postsExpand.append(alignBoxes)
                                            .append(boardDescDiv);
                 
-                 $("#boardResults").empty();
-                 $("#boardResults").append(boardName, boardHTML);
+                 
+             $("#boardResults").append(boardName, boardHTML);
 
 
             }
@@ -82,27 +84,29 @@ $( document ).ready(function() {
 
     }
 
+//for oneboard ISNT WORKING YET
     function topicsPost() { 
 
         $.ajax({
             method: "GET",
-            url: "/api/boards/:board/:topic"
+            url: "/api/boards/:boards/:topics"
         }).then(function(response){
           
             for (let i = 0; i < response.length; i++) {
                 let board = response[i];
 
-                let topicName = $('<div class="button js-topic">').text(topic.title);
+                let boardName = $('<div class="button js-topic">').text(board.title);
                 let postsExpand = $('<div class="js-posts-expand expand">');
                 let alignBoxes = $('<div class="d-f jc-center">');
-                let boardDescDiv = $('<div class="speechbox2 ml-3em mr-3em mb-1em">').text(topic.description);
+                let boardDescDiv = $('<div class="speechbox2 ml-3em mr-3em mb-1em">').text(board.topic.topicId);
 
-                let boardHTML = postsExpand.append(alignBoxes)
+                let topicHTML = postsExpand.append(alignBoxes)
                                            .append(boardDescDiv);
                 
                  $("#topicResults").empty();
-                 $("#topicResults").append(topicName, topicHTML);
-
+                 $("#topicResults").append(boardName, topicHTML);
+                
+                 console.log("Is this working?");
 
             }
            
@@ -110,6 +114,9 @@ $( document ).ready(function() {
 
 
     }
+
+//for NEW POST 
+
 
     //display data on boards page
     boardsPost();

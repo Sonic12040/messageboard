@@ -11,12 +11,12 @@ app.get("/boards", function(req, res){
 
 //boards/:board
 app.get("/boards/:board", function(req, res){
-    res.sendFile(path.join(__dirname, "../public/topics.html"));
+    res.sendFile(path.join(__dirname, "../public/oneboard.html"));
 });
 
 //boards/:board/:topic
 app.get("/boards/:board/:topic", function(req, res){
-    res.sendFile(path.join(__dirname, "../public/posts.html"));
+    res.sendFile(path.join(__dirname, "../public/onetopic.html"));
 });
 
 //(index)

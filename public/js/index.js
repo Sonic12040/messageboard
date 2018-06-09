@@ -89,7 +89,7 @@ $( document ).ready(function() {
           
             for (let i = 0; i < response.length; i++) {
                 let board = response[i];
-                console.log('Board: ', board);
+                // console.log('Board: ', board);
                 let boardId = response[i].id;
 
                 let boardName = $('<div class="mb-1em button">').html('<a href ="/boards/' + boardId + '" target="">' + board.title + '</a>');
@@ -113,22 +113,25 @@ $( document ).ready(function() {
 
         $.ajax({
             method: "GET",
-            url: "/api/boards/:boards/:topics"
+            url: "/api/boards/:boards/:topic"
         }).then(function(response){
           
+            $("#topicResults").empty();
+
             for (let i = 0; i < response.length; i++) {
                 let board = response[i];
+                console.log('Board: ', board);
+                let boardId = response[i].id;
 
                 let boardName = $('<div class="button js-topic">').text(board.title);
                 let postsExpand = $('<div class="js-posts-expand expand">');
                 let alignBoxes = $('<div class="d-f jc-center">');
-                let boardDescDiv = $('<div class="speechbox2 ml-3em mr-3em mb-1em">').text(board.topic.topicId);
+                // let boardDescDiv = $('<div class="speechbox2 ml-3em mr-3em mb-1em">').text(board.topic.id);
 
                 let topicHTML = postsExpand.append(alignBoxes)
                                            .append(boardDescDiv);
                 
-                 $("#topicResults").empty();
-                 $("#topicResults").append(boardName, topicHTML);
+                 $("#topicResults").append(boardName);
                 
                  console.log("Is this working?");
 

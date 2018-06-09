@@ -32,14 +32,6 @@ module.exports = function(app, passport) {
         });
     });
 
-    app.get("/api/boardid", function(req, res){
-        db.Board.findOne({
-            where: {
-                Id: 
-            }
-        })
-    })
-
     //Create topic
     app.post("/api/createtopic", isLoggedIn, function(req, res){
         console.log(req.body);

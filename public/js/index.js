@@ -114,13 +114,16 @@ function getTopics() {
         url: '/api' + window.location.pathname
     }).then((response) => {
         console.log('index.js line 56 ' + response.id);
-        let boardName = $('<div>').addClass('button js-topic').text(response.title);
+        let boardId = response.id; 
+        $('#boardName').text(response.title);
         response.Topics.forEach(topic => {
+            let topicId = topic.id;
+            let topicName = $('<div>').addClass('button js-topic').html('<a href="/boards/' + boardId + '/' + topicId + '" target="">' + topic.topicName + '</a>');
             let postsExpand = $('<div>').addClass('js-posts-expand expand');
             let alignBoxes = $('<div>').addClass('d-f jc-center');
-            let boardDescDiv = $('<div>').addClass('speechbox2 ml-3em mr-3em mb-1em').text(topic.topicId);
+            let boardDescDiv = $('<div>').addClass('speechbox2 ml-3em mr-3em mb-1em').text(topic.boardId);
             let topicHTML = postsExpand.append(alignBoxes).append(boardDescDiv);
-            $('#topicResults').append(boardName, topicHTML);
+            $('#topicResults').append(topicName, topicHTML);
         });
     })
 };
@@ -151,6 +154,7 @@ function createTopic() {
 
 //function to get posts on onetopic.html
 function getPosts() {
+
 
 };
 

@@ -22,7 +22,7 @@ module.exports = function(app, passport) {
 
     
     // Create board
-    app.post("/api/createboard", isLoggedIn, function(req, res){
+    app.post("/api/createboard", function(req, res){
         //Create an if statement to see if the user is an admin
         db.Board.create({
             title: req.body.title,
@@ -33,7 +33,7 @@ module.exports = function(app, passport) {
     });
 
     //Create topic
-    app.post("/api/create/boards/:board", isLoggedIn, function(req, res){
+    app.post("/api/create/boards/:board", function(req, res){
         console.log(req.body);
         //We need to pass through the object containing the below case sensitive fields in JSON format.
         db.Topic.create({

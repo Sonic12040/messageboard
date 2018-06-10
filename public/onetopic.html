@@ -113,55 +113,29 @@
 
 
   
-  <!-- Boards -->
-  <h1 class="font-233 fs-1rem t-a-c">Skim through boards and topics.</h1>
+  <!-- topics -->
+  <h1 id="topicName" class="font-233 fs-2rem_lg fs-1rem_sm fs-2rem_md t-a-c mb-1em_lg"></h1>
   <div class="ml-3em mr-3em d-f jc-center mb-1em">
       <div class="speechform">
 
-        <div id="topicPopulation"></div>
+        <div id="postPopulation"></div>
 
-
-          <div>Board name</div>
-              <div>
-                  <div class="button js-topic">Topic name</div>
-                      <div class="js-posts-expand expand">
-                      <!-- posts -->
-                      <div class="d-f jc-center">
-                          <div class="speechbox ml-3em mr-3em mb-1em">
-                              <div>This is where the username will go
-                              </div>
-                              <div>This is a post
-                              </div>
-                          </div>
-                      </div>
-                      <div class="d-f jc-center">
-                          <div class="speechbox2 ml-5em mr-1em mb-1em">
-                              <div>This is where the username will go
-                              </div>
-                              <div>This is a post
-                              </div>
-                          </div>
-                      </div>    
-                      
-                      <!-- End of posts -->
-                  </div>
 
                  
 
-                    <!-- New post section -->
-                    <div class="ml-3em mr-3em d-f jc-center mb-1em">
-                        <div class="speechform">
-                            <form>
-                                <div class="js-usernamepost pad-1em">username (will populate)
-                                </div>
-                                <!-- form box for post -->
-                                    <input type="text-newpost">
-                                        <input class="button" type="submit" value="Post Your Thought">
-                                                                
-                            </form>
-                        </div>
-                    </div>
-                <!-- end of new posts -->
+         <!-- New post section -->
+         <div class="ml-3em mr-3em d-f jc-center mb-1em">
+          <div class="speechform">
+              <form>
+
+                  <!-- form box for post -->
+                      <input class="width-50" type="textbox" id="postContent" name="topicName" value="What's Your Thought">
+                      <input class="button js-newpost" type="submit" name="postContent" value="Post Your Thought">
+                                                  
+              </form>
+          </div>
+      </div>
+  <!-- end of new posts -->
 
 
                   <!-- closing div for topics -->

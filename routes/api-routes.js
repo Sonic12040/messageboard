@@ -33,13 +33,13 @@ module.exports = function(app, passport) {
     });
 
     //Create topic
-    app.post("/api/createtopic", isLoggedIn, function(req, res){
+    app.post("/api/create/boards/:board", isLoggedIn, function(req, res){
         console.log(req.body);
         //We need to pass through the object containing the below case sensitive fields in JSON format.
         db.Topic.create({
             topicName: req.body.topicName,
             UserId: req.user.id,
-            BoardId: req.body.BoardId
+            BoardId: req.params.board
         }).then((dbTopic) => {
             res.json(dbTopic);
         });

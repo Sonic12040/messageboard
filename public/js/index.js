@@ -132,24 +132,22 @@ function createTopic() {
         //topic portion
         $.ajax({
             method: 'POST',
-            url: '/api/createtopic',
+            url: '/api/create' + window.location.pathname,
             data: {
-                topicName: $('#topicName').val().trim(),
-                BoardId: placeholdervariable //Board Id needs to be figured out
+                topicName: $('#topicName').val().trim()
             }
         }).then((response) => {
-            return response;
-        });
-        //post portion
-        $.ajax({
-            method: 'POST',
-            url: '/api/createpost',
-            data: {
-                content: placeholdervariable, //the content variable needs to be figured out
-                TopicId: placeholdervariable //the TopicId variable needs to be figured out
-            }
-        }).then((responseTwo) => {
-            return responseTwo;
+            //post portion
+            $.ajax({
+                method: 'POST',
+                url: '/api/createpost',
+                data: {
+                    content: $('#postContent').val().trim(),
+                    TopicId: response.id
+                }
+            }).then((responseTwo) => {
+                return responseTwo;
+            });
         });
     });
 };

@@ -57,6 +57,17 @@ module.exports = function(app, passport) {
         });
     });
 
+    //postToTopic
+    app.post("/api/create/boards/:board/:topic", isLoggedIn, function(req, res){
+        db.Post.create({
+            content: req.body.content,
+            UserId: req.user.id,
+            TopicId: req.params.topic
+        }).then((dbPost) => {
+            res.json(dbPost);
+        });
+    });
+
     //isLoggedin
 
     //The Boards Page - Featuring Zach Braff

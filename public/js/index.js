@@ -127,8 +127,6 @@ function getTopics() {
 
 //function to create a topic
 function createTopic() {
-    $('.js-newtopic').on('click', function(event) {
-        event.preventDefault();
         //topic portion
         $.ajax({
             method: 'POST',
@@ -149,7 +147,6 @@ function createTopic() {
                 return responseTwo;
             });
         });
-    });
 };
 
 //function to get posts on onetopic.html
@@ -159,7 +156,15 @@ function getPosts() {
 
 //function to create a post
 function createPost() {
-
+    $.ajax({
+        method: 'POST',
+        url: '/api/create' + window.location.pathname,
+        data: {
+            content: $('#postContent').val().trim()
+        }
+    }).then((response) => {
+        console.log(response);
+    });
 };
 
 
@@ -220,13 +225,19 @@ $('#submit').on('click', function(event) {
 //oneboard Events
 //if ($('#topicResults')) {
     getTopics();
-    createTopic();
+    $('.js-newtopic').on('click', function(event) {
+        event.preventDefault();
+        createTopic();
+    });
 //};
 
 //onetopic Events
 //if ($('#postResults')) {
     getPosts();
-    createPost();
+    $('.js-newpost').on('click', function(event) {
+        event.preventDefault();
+        createPost();
+    });
 //};
 
 

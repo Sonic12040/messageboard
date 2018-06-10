@@ -1,298 +1,236 @@
-$( document ).ready(function() {
+$(document).ready(function() {
 
- /*  Submit and Ajax call for login page begin */   
-        
-
-    	// SUBMIT FORM
-        $("#submit").submit(function(event) {
-            // Prevent the form from submitting via the browser.
-            event.preventDefault();
-            ajaxPost();
-        });
-        
-        
-        function ajaxPost(){
-            
-            // PREPARE FORM DATA
-            var formData = {
-                username : $("#username-js").val().trim(),
-                password :  $("#password-js").val().trim()
-            }
-            
-            // DO POST
-            $.ajax({
-                method : "POST",
-                contentType : "application/json",
-                url : window.location + "api/login",
-                data : JSON.stringify(formData),
-                dataType : 'json',
-                success : function(user) {
-                    $("#postUser").html("<p>" + 
-                        "Welcome <br>" + user.username + "</p>"); 
-                },
-                // error : function(e) {
-                //     alert("Error!")
-                //     console.log("ERROR: ", e);
-                // }
-            });
-            
-            // Reset FormData after Posting
-            resetData();
-     
-        }
-        
-        function resetData(){
-            $("#username-js").val("");
-            $("#password-js").val("");
-        }
+//VARIABLES
 
 
 
- /*  Submit and Ajax call for login page ends */   
- function indexPage() { 
 
+//FUNCTIONS
+//menu toggle checksize function
+function checkSize() {
+    if ($('.menuCheck').css('display') == "none") {
+        $('#js-mb-menu').addClass('mb-menu-overlay');
+        $('#js-mb-menu').removeClass('mb-menu');
+        $('#js-mb-menu').removeClass('mb-menu-vertical');
+    };
+};
+
+//function to show the sidebar menu
+function menuShow() {
+    $('.speechform').addClass('speechform-menu');
+    $('.speechform').removeClass('speechform');
+    $('.wrapper').addClass('mb-menu-push-toright');
+    $('.wrapper').animate({marginleft: '+=300px'}, 500);
+    $('#js-mb-menu').animate({width: 'toggle'}, function () {
+        $('#js-mb-toggle').hide();
+        $('#js-mb-toggle-off').show();
+    });
+};
+
+//function to hide the sidebar menu
+function menuHide() {
+    $('.speechform-menu').addClass('speechform');
+    $('.speechform').removeClass('speechform-menu');
+    $('.wrapper').removeClass('mb-menu-push-toright');
+    $('.wrapper').animate(
+        {
+            marginleft: '-=300px'
+        }, 500);
+    $('#js-mb-menu').animate({width: 'toggle'}, function() {
+        $('#js-mb-toggle-off').hide();
+        $('#js-mb-toggle').show();
+    });
+};
+
+//function to toggle the login modal
+function loginToggle() {
+    $('.js-login-modal').toggleClass('d-n');
+};
+
+//function to toggle the signup modal
+function signupToggle() {
+    $('.js-signup-modal').toggleClass('d-n');
+};
+
+//function to handle the login on the client side
+function loginFunction() {
+    var formData = {
+        username: $('#username-js').val().trim(),
+        password: $('#password-js').val().trim()
+    };
     $.ajax({
-        method: "GET",
-        url: "/api/boards"
-    }).then(function(response){
+        method: 'POST',
+        contentType: 'application/json',
+        url: window.location + 'api/login',
+        data: JSON.stringify(formData),
+        dataType: 'json',
+        success: (user) => {
+            $('#postUser').html('<p>Welcome <br>' + user.username + '</p>');
+        }
+    });
+    $('#username-js').val('');
+    $('#password-js').val('');
+};
 
-
-        $("#boardIndex").empty();
+//function to get the data for index.html
+function getIndex() {
+    $.ajax({
+        method: 'GET',
+        url: '/api/boards'
+    }).then((response) => {
+        $('#boardIndex').empty();
         let lastObj = response.slice(-1);
         let boardId = lastObj[0].id;
         let boardDesc = lastObj[0].description;
-
-        console.log("Last Object: ", lastObj[0].title);
-
-        let alignBoxes = $('<div class="">');
-        let boardBox = $('<div class="">').html('<a href="/boards/' + boardId + '" class="button" target="">' + lastObj[0].title + '</a><div class="speechbox ml-3em mr-3em mb-1em">' + boardDesc + '</div>');
-
+        let alignBoxes = $('<div>');
+        let boardBox = $('<div>').html('<a href="/boards/' + boardId + '" class="button" target="">' + lastObj[0].title + '</a><div class="speechbox ml-3em mr-3em mb-1em">' + boardDesc + '</div>');
         let boardHTML = alignBoxes.append(boardBox);
-                                    
-        $("#boardIndex").append(boardHTML);
-
-    });
-
-
-}
-
-  /*  Boards Ajax call */   
-  
-  function boardsPost() { 
-
-        $.ajax({
-            method: "GET",
-            url: "/api/boards"
-        }).then(function(response){
-
-            $("#boardResults").empty();
-          
-            for (let i = 0; i < response.length; i++) {
-                let board = response[i];
-                let boardId = response[i].id;
-
-                let boardName = $('<div class="mb-1em button">').html('<a href ="/boards/' + boardId + '" target="">' + board.title + '</a>');
-                let alignBoxes = $('<div class="d-f jc-center">');
-                let boardDescDiv = $('<div class="speechbox ml-3em mr-3em mb-1em">').text(board.description);
-
-                let boardHTML = alignBoxes.append(boardDescDiv);
-                                 
-             $("#boardResults").append(boardName, boardHTML);
-
-
-            }
-           
-        });
-
-
-    }
-
-//for oneboard ISNT WORKING YET
-    function topicsPost() { 
-
-        $.ajax({
-            method: "GET",
-            url: "/api" + window.location.pathname
-        }).then(function(response){
-            console.log(window.location);
-            console.log("Boards response: ", response);
-
-        console.log("Board Title: " + response.title);
-        let boardName = $('<div class="button js-topic">').text(response.title);
-
-            for (let p = 0; p < response.Topics.length; p++) {
-                let topic = response.Topics[p];
-                console.log("Topic: ", topic);
-                let postsExpand = $('<div class="js-posts-expand expand">');
-                let alignBoxes = $('<div class="d-f jc-center">');
-                let boardDescDiv = $('<div class="speechbox2 ml-3em mr-3em mb-1em">').text(topic.topicId);
-
-                let topicHTML = postsExpand.append(alignBoxes)
-                                           .append(boardDescDiv);
-                
-                //  $("#topicResults").empty();
-                 $("#topicResults").append(boardName, topicHTML);
-
-            }
-           
-        });
-
-
-    }
-
-//for NEW POST 
-
-    function createTopic() {
-
-        $(".js-newtopic").on('click', function(event){
-            event.preventDefault(); 
-
-            $.ajax({
-                method: "POST",
-                url: "/api/createtopic",
-                data: {
-                    topicName: $('#topicName').val().trim(),
-                    UserId: 1,
-                }
-            }).then(function(response) {
-
-                console.log("Response Test: " + response[0]);
-                return response;
-
-            })
-
-            $.ajax({
-                method: "POST",
-                url: "/api/createpost",
-                data: {
-                    content: "The best content ever!",
-                    TopicId: 1,
-                }
-            }).then(function(responseTwo) {
-                console.log("ResponseTwo!!!!!!!!!!!!!!!!!!!!: " + responseTwo);
-            })
-        });
-
-
-    }
-
-    
-
-
-    //display data on boards page
-    boardsPost();
-    topicsPost();
-    indexPage();
-    createTopic();
-    
-
-
-    
-    $(".js-login-button").on('click', function(event) {
-        // event.preventDefault();
-        $(".js-login-modal").toggleClass("d-n");
-    });
-
-    // For X button on login modal
-    $(".js-login-off").on('click', function(event) {
-        $(".js-login-modal").toggleClass("d-n"); 
+        $('#boardIndex').append(boardHTML);
     })
+};
 
-
-    $(".js-signup-button").on('click', function(event) {
-        // event.preventDefault();
-        $(".js-signup-modal").toggleClass("d-n");
-    });
-
-    // For X button on signup modal
-    $(".js-signup-off").on('click', function(event) {
-        // event.preventDefault();
-        $(".js-signup-modal").toggleClass("d-n");
-    });
-
-    $(".js-newuser").on('click', function(event){
-        let username = req.name;
-        let tempPass = req.password;
-        const saltRounds = 10;
-
-        bcrypt.hash(tempPass, saltRounds, function(err, hash) {
-
-            localStorage.clear();
-            localStorage.setItem("username", username);
-            localStorage.setItem('password', hash);
-            localStorage.setItem('loggedin', true);
-            location.reload();
+//function to get boards on boards.html
+function getBoards() {
+    $.ajax({
+        method: 'GET',
+        url: '/api/boards'
+    }).then((response) => {
+        $('#boardResults').empty();
+        response.forEach(board => {
+            let boardId = board.id;
+            let boardName = $('<div>').addClass('mb-1em button').html('<a href="/boards/' + boardId + '" target="">' + board.title + '<a>');
+            let alignBoxes = $('<div>').addClass('d-f jc-center');
+            let boardDescDiv = $('<div>').addClass('speechbox ml-3em mr-3em mb-1em').text(board.description);
+            let boardHTML = alignBoxes.append(boardDescDiv);
+            $('#boardResults').append(boardName, boardHTML);
         });
-    });
+    })
+};
 
+//function to get topics on oneboard.html
+function getTopics() {
+    $.ajax({
+        method: 'GET',
+        url: '/api' + window.location.pathname
+    }).then((response) => {
+        console.log('index.js line 56 ' + response.id);
+        let boardName = $('<div>').addClass('button js-topic').text(response.title);
+        response.Topics.forEach(topic => {
+            let postsExpand = $('<div>').addClass('js-posts-expand expand');
+            let alignBoxes = $('<div>').addClass('d-f jc-center');
+            let boardDescDiv = $('<div>').addClass('speechbox2 ml-3em mr-3em mb-1em').text(topic.topicId);
+            let topicHTML = postsExpand.append(alignBoxes).append(boardDescDiv);
+            $('#topicResults').append(boardName, topicHTML);
+        });
+    })
+};
 
-    //for topics to expand
-    // $(document).on('click', '.js-topic', function(event){
-    //     $(".js-posts-expand").toggleClass("expand");
-    // })
-
-    //Hamburger Menu
-
-    //responsive menu code
-
-    function checkSize(){
-        if ($(".menuCheck").css("display") == "none" ){
-
-            $("#js-mb-menu").addClass("mb-menu-overlay");
-            $("#js-mb-menu").removeClass("mb-menu");
-            $("#js-mb-menu").removeClass("mb-menu-vertical");
-
-        }
-    }
-
-    // hide menu
-    $( "#js-mb-menu").hide(); 
-    $( "#js-mb-toggle-off").hide(); 
-
-
-    //show menu
-    $( "#js-mb-toggle" ).on('click', function(event) {
-         // Prevent menu showing via the browser.
+//function to create a topic
+function createTopic() {
+    $('.js-newtopic').on('click', function(event) {
         event.preventDefault();
-        checkSize();
-
-        $(".speechform").addClass("speechform-menu");
-        $(".speechform").removeClass("speechform");
-         $(".wrapper").addClass("mb-menu-push-toright");
-        $(".wrapper").animate({
-            marginleft: '+=300px'
-        }, 500);
-        
-        $( "#js-mb-menu" ).animate( {width: 'toggle'},  function()
-                {   
-                        $( "#js-mb-toggle" ).hide();
-                        $( "#js-mb-toggle-off").show(); 
-                        
-            
-                 });
+        //topic portion
+        $.ajax({
+            method: 'POST',
+            url: '/api/createtopic',
+            data: {
+                topicName: $('#topicName').val().trim(),
+                BoardId: placeholdervariable //Board Id needs to be figured out
+            }
+        }).then((response) => {
+            return response;
         });
-
-     //hide menu on click   
-     $( "#js-mb-toggle-off" ).on('click', function(event) {
-           // Prevent menu showing via the browser.
-        event.preventDefault();
-
-        $(".speechform-menu").addClass("speechform");
-        $(".speechform").removeClass("speechform-menu");
-        $(".wrapper" ).removeClass( "mb-menu-push-toright" );
-        $(".wrapper").animate({
-            marginleft: '-=300px'
-        }, 500);
-        
-	
-        $( "#js-mb-menu" ).animate( {width: 'toggle'}, function()
-                {
-                        $( "#js-mb-toggle-off" ).hide();
-                        $( "#js-mb-toggle" ).show();
-                       
-            
-                 });
+        //post portion
+        $.ajax({
+            method: 'POST',
+            url: '/api/createpost',
+            data: {
+                content: placeholdervariable, //the content variable needs to be figured out
+                TopicId: placeholdervariable //the TopicId variable needs to be figured out
+            }
+        }).then((responseTwo) => {
+            return responseTwo;
         });
-    
+    });
+};
 
-}); 
+//function to get posts on onetopic.html
+function getPosts() {
+
+};
+
+//function to create a post
+function createPost() {
+
+};
+
+
+
+//EVENTS
+//Global Events
+//page load
+
+
+
+
+$('#js-mb-menu').hide();
+$('#js-mb-toggle-off').hide();
+//menu show
+$('#js-mb-toggle').on('click', function(event) {
+    event.preventDefault();
+    checkSize();
+    menuShow();
+});
+//menu hide
+$('#js-mb-toggle-off').on('click', function(event) {
+    event.preventDefault();
+    menuHide();
+});
+//display login modal
+$('.js-login-button').on('click', function(event) {
+    loginToggle();
+});
+//hide login modal
+$('.js-login-off').on('click', function(event) {
+    loginToggle();
+});
+//display signup modal
+$('.js-signup-button').on('click', function(event) {
+    signupToggle();
+});
+//hide signup modal
+$('.js-signup-off').on('click', function(event) {
+    signupToggle();
+});
+//login form submission
+$('#submit').on('click', function(event) {
+    event.preventDefault();
+    loginFunction();
+});
+
+
+//Index Events
+//if ($('#boardIndex')) {
+    getIndex();
+//};
+
+//Boards Events
+//if ($('#boardResults')) {
+    getBoards();
+//};
+
+//oneboard Events
+//if ($('#topicResults')) {
+    getTopics();
+    createTopic();
+//};
+
+//onetopic Events
+//if ($('#postResults')) {
+    getPosts();
+    createPost();
+//};
+
+
+//close of document.ready function
+});

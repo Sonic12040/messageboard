@@ -155,6 +155,20 @@ function createTopic() {
 //function to get posts on onetopic.html
 function getPosts() {
 
+    $.ajax({
+        method: 'GET',
+        url: '/api' + window.location.pathname
+    }).then((response) => {
+        $('#js-topicName').text(response.topicName);
+        
+        response.Posts.forEach(post => {
+            let postContent = post.content;
+            let postUser = post.User.username;
+            // let renderPostUser = $('<div>').addClass('button').text('User: ' postUser);
+            let renderPostContent = $('<div>').addClass('speechbox2 ml-3em mr-3em mb-1em').text(postContent);
+            $('#postPopulation').append(renderPostContent);
+        });
+    })
 
 };
 

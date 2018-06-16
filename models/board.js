@@ -1,3 +1,4 @@
+var Topic = require("./topic");
 module.exports = function(sequelize, DataTypes) {
     var Board = sequelize.define("board", {
         title: {

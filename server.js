@@ -1,7 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var db = require("./models");
-var PORT = process.env.JAWSDB_URL || 8080;
+var PORT = process.env.PORT || 8080;
 var app = express();
 var passport = require('passport');
 var session = require('express-session');

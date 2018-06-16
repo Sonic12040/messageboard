@@ -1,6 +1,6 @@
 var Topic = require("./topic");
 module.exports = function(sequelize, DataTypes) {
-    var Board = sequelize.define("board", {
+    var Board = sequelize.define("Board", {
         title: {
             type: DataTypes.STRING,
             allowNull: false,

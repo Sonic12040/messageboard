@@ -1,7 +1,6 @@
 var db = require("../models");
 const bcrypt = require("bcrypt");
 const isLoggedIn = require("./isLoggedIn");
-// let passportlocal = require("passport-local");
 
 module.exports = function(app, passport) {
 
